@@ -8,13 +8,19 @@ import { routes } from './routes';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SessionService } from '../services/session.service';
 import { ProfileComponent } from './profile/profile.component';
+import { ProfileService } from '../services/profile.service';
+import { HomepageComponent } from './homepage/homepage.component';
+import { PublicationsService } from '../services/publications.service';
+import { PublicationDetailsComponent } from './publication-details/publication-details.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
-    ProfileComponent
+    ProfileComponent,
+    HomepageComponent,
+    PublicationDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +28,7 @@ import { ProfileComponent } from './profile/profile.component';
     HttpModule,
     FormsModule
   ],
-  providers: [SessionService],
+  providers: [SessionService, ProfileService, PublicationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

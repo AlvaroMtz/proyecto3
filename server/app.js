@@ -54,10 +54,12 @@ app.use(session({
 require('./passport')(app)
 
 const User = require('./models/User')
+const Publication = require('./models/Publication')
 
 
 app.use('/api/auth', auth);
 app.use('/api/user/', generateCrud(User));
+app.use('/api/publications/', generateCrud(Publication));
 
 
 // catch 404 and forward to error handler
