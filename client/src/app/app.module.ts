@@ -12,6 +12,8 @@ import { ProfileService } from '../services/profile.service';
 import { HomepageComponent } from './homepage/homepage.component';
 import { PublicationsService } from '../services/publications.service';
 import { PublicationDetailsComponent } from './publication-details/publication-details.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
+import { EditFormComponent } from './edit-form/edit-form.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { PublicationDetailsComponent } from './publication-details/publication-d
     LoginFormComponent,
     ProfileComponent,
     HomepageComponent,
-    PublicationDetailsComponent
+    PublicationDetailsComponent,
+    SignupFormComponent,
+    EditFormComponent
   ],
   imports: [
     BrowserModule,

@@ -1,15 +1,11 @@
-<h1> Phone details </h1>
-<a [routerLink]="['']"> Back Home </a>
+<a [routerLink]="['/home']"> Back Home </a>
 
-<div *ngIf="user">
-  <div class="user-thumbnail">
-    <img height="300" [src]="user.image" />
-  </div>
 
   <div class="user-info">
-    <h2> {{ user.name }}&nbsp;</h2>
+    <h2> {{ user.username }}&nbsp;</h2>
     <h3> {{ user.email }} </h3>
     <p>{{user.description}}</p>
-
-<a href="edit/:id"></a>
-<button (click)="deleteUser()">Delete</button>
+    <button>
+    <a [routerLink]="['/edit', this.user._id]"> Editar mi perfil</a>
+  </button>
+<!-- <button (click)="deleteUser()">Delete</button> -->

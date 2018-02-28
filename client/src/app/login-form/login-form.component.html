@@ -1,7 +1,6 @@
 
 <div *ngIf="!session.getUser()">
   <form>
-    <h2> Login or Signup </h2>
     <label> Username </label>
     <input type="text" [(ngModel)]="username" name="username"/>
     <br>
@@ -9,7 +8,6 @@
     <input type="password" [(ngModel)]="password" name="password"/>
     <div>
       <button (click)="login()"> login </button>
-      <button (click)="signup()"> signup </button>
     </div>
   </form>
   <p *ngIf="error" class="error"> {{ error }} </p>

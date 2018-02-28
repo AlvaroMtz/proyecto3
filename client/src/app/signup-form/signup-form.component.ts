@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-login-form',
-  templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.css']
+  selector: 'app-signup-form',
+  templateUrl: './signup-form.component.html',
+  styleUrls: ['./signup-form.component.css']
 })
-export class LoginFormComponent implements OnInit {
+export class SignupFormComponent implements OnInit {
 
   username:string;
   password:string;
@@ -22,10 +22,12 @@ export class LoginFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  login(){
-    this.session.login(this.username,this.password)
+  signup(){
+    this.session.signup(this.username,this.password)
     .catch(e => this.error = e)
-    .subscribe(user => console.log(`Welcome ${user.username}`));
+    .subscribe( m => {
+      this.router.navigate(['user/:id']);
+    });
   }
 
   logout(){

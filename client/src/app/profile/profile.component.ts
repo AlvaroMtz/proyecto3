@@ -10,7 +10,6 @@ import { ProfileService } from '../../services/profile.service';
 })
 export class ProfileComponent implements OnInit {
   user:any;
-  //num_likes: number
   constructor(
     private router:Router,
     private route: ActivatedRoute,
@@ -28,19 +27,6 @@ export class ProfileComponent implements OnInit {
       .subscribe((user) => {
         this.user = user;
       });
-  }
-
-  editUser(user){
-    this.pS.edit(user)
-    .subscribe((user) =>{
-      this.user = user;
-    })
-  }
-
-  deletePhone(){
-    this.pS.remove(this.user._id).subscribe( m => {
-      this.router.navigate(['/']);
-    });
   }
 
 }

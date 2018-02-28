@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PublicationsService } from '../../services/publications.service';
 import { Router } from '@angular/router';
+import { SessionService } from '../../services/session.service';
 
 @Component({
   selector: 'app-homepage',
@@ -10,17 +11,23 @@ import { Router } from '@angular/router';
 })
 export class HomepageComponent implements OnInit {
 
-  publications:any;
+  publications:Array<any>
+  user: any;
   likes: number
   constructor(
     private router:Router,
     private route: ActivatedRoute,
-    private pS: PublicationsService,
+    private pubService: PublicationsService,
+    private authService: SessionService,
   ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.pS.getList().subscribe(list => this.publications = list)
+      this.pubService.getList().subscribe(list => {
+        this.publications = list;
+        this.user = this.authService.getUser();
+        console.log(this.user)
+      })
     });
   }
  
