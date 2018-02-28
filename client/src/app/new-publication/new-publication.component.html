@@ -1,0 +1,15 @@
+<div *ngIf=this.user>
+    <form>
+      <label> ¿Título? </label>
+      <input type="title" [(ngModel)]="title" name="title" />
+      <br>
+      <label> Contenido </label>
+      <input type="text" [(ngModel)]="text" name="text" />
+      <br>
+      <input type="hidden" [(ngModel)]="this.user._id" value="this.user._id">
+      <br>
+        <button (click)="newPub(title, text, this.user._id)"> Publicar</button>
+      <a href="/home">Volver a HOME</a>
+    </form>
+  </div>
+

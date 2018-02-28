@@ -3,7 +3,7 @@ const Schema   = mongoose.Schema;
 
 const publicationSchema = new Schema({
   title: String,
-  userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+  userId: { type: Schema.Types.ObjectId, ref: 'User'},
   //image here
   text: String,
 }, {

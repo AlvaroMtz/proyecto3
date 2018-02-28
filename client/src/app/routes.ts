@@ -4,6 +4,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomepageComponent } from './homepage/homepage.component'
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
+import { NewPublicationComponent } from './new-publication/new-publication.component';
 
 export const routes: Routes = [
     { path: '', component: SignupFormComponent},
@@ -11,5 +12,6 @@ export const routes: Routes = [
     { path: 'login', component: LoginFormComponent},
     { path: 'profile/:id', component: ProfileComponent},
     { path: 'edit/:id', component: EditFormComponent},
+    { path: 'new', component: NewPublicationComponent},
     { path: '**', redirectTo: 'home' }
 ];

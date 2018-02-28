@@ -14,6 +14,7 @@ import { PublicationsService } from '../services/publications.service';
 import { PublicationDetailsComponent } from './publication-details/publication-details.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
+import { NewPublicationComponent } from './new-publication/new-publication.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { EditFormComponent } from './edit-form/edit-form.component';
     HomepageComponent,
     PublicationDetailsComponent,
     SignupFormComponent,
-    EditFormComponent
+    EditFormComponent,
+    NewPublicationComponent
   ],
   imports: [
     BrowserModule,
