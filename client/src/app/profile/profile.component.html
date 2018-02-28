@@ -1,7 +1,7 @@
 <a [routerLink]="['/home']"> Back Home </a>
 
 
-  <div class="user-info">
+  <div class="user-info" *ngIf=this.user>
     <h2> {{ user.username }}&nbsp;</h2>
     <h3> {{ user.email }} </h3>
     <p>{{user.description}}</p>

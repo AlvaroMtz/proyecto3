@@ -6,6 +6,12 @@ import 'rxjs/add/operator/map';
 export class ProfileService {
   BASE_URL: string = 'http://localhost:3000';
   constructor(private http: Http) {}
+
+  private user:any;
+
+  getUser(){
+    return this.user;
+  }
     
   getList() {
     return this.http.get(`${this.BASE_URL}/api/user`)
@@ -18,8 +24,8 @@ export class ProfileService {
   }
   
   edit(user) {
-    return this.http.put(`${this.BASE_URL}/api/user/${user.id}`, user)
-      .map((res) => res.json());
+    return this.http.put(`${this.BASE_URL}/api/user/${user._id}`, user)
+    .map((res) => res.json());
   }
   
   remove(id) {

@@ -11,6 +11,7 @@ const {dbURL} = require('./config');
 const generateCrud = require('./routes/crud');
 const cors = require('cors');
 const auth = require('./routes/auth');
+const user = require('./routes/user');
 
 const app = express();
 

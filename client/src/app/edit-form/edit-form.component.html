@@ -1,3 +1,24 @@
-<p>
-  edit-form works!
-</p>
+<div *ngIf=this.user>
+  <h1> Hola {{user.username}}, este es tu perfil, ¿lo quieres editar?</h1>
+  <form>
+    <label> ¿Cómo te llamas? </label>
+    <input type="text" [(ngModel)]="user.name" name="name" />
+    <br>
+    <label> ¿Y tus apellidos? </label>
+    <input type="text" [(ngModel)]="user.surname" name="surname" />
+    <br>
+    <label> ¿Quieres cambiar tu username? </label>
+    <input type="text" [(ngModel)]="user.username" name="username" />
+    <br>
+    <label> Email </label>
+    <input type="email" [(ngModel)]="user.email" name="email" />
+    <br>
+    <label> Pequeña descripción </label>
+    <input type="text" [(ngModel)]="user.text" name="text" />
+    <br>
+    <div>
+      <button (click)="editUser(user)"> ¡Editar!</button>
+    </div>
+    <a href="/home">Volver a HOME</a>
+  </form>
+</div>
