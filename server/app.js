@@ -11,7 +11,10 @@ const {dbURL} = require('./config');
 const generateCrud = require('./routes/crud');
 const cors = require('cors');
 const auth = require('./routes/auth');
+const publ = require('./routes/publ')
 const user = require('./routes/user');
+const Publication = require('./models/Publication');
+const Coment = require('./models/Coment')
 
 const app = express();
 
@@ -55,12 +58,13 @@ app.use(session({
 require('./passport')(app)
 
 const User = require('./models/User')
-const Publication = require('./models/Publication')
+
 
 
 app.use('/api/auth', auth);
+app.use('/api/publications/', publ)
 app.use('/api/user/', generateCrud(User));
-app.use('/api/publications/', generateCrud(Publication));
+// app.use('/api/publications/', generateCrud(Publication));
 
 
 // catch 404 and forward to error handler

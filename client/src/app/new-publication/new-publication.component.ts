@@ -14,7 +14,7 @@ export class NewPublicationComponent implements OnInit {
   user: any;
 
   title: Array<any>;
-  id: any;
+  userId: any;
   text: Array<any>;
 
   publications: any;
@@ -35,8 +35,8 @@ export class NewPublicationComponent implements OnInit {
       })
     });
   };
-  newPub(title, text, id, name ){
-      this.pubService.newPub(title, text, id, name)
+  newPub(title, text, userId){
+      this.pubService.newPub(title, text, userId)
       .subscribe()
     }
 }

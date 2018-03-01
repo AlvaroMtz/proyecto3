@@ -6,7 +6,6 @@ interface Publication {
   title:string,
   text:string,
   userId: string,
-  creatorName: string,
 }
 
 @Injectable()
@@ -24,8 +23,8 @@ export class PublicationsService {
       .map((res) => res.json());
   }
 
-  newPub(title:string, text:string, userId:string, creatorName:string){
-    return this.http.post(`${this.BASE_URL}/api/publications`, {title, text, userId, creatorName})
+  newPub(title:string, text:string, userId:string){
+    return this.http.post(`${this.BASE_URL}/api/publications`, {title, text, userId})
     .map((res) => res.json());
   }
   
