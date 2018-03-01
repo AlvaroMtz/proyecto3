@@ -13,7 +13,8 @@ export class HomepageComponent implements OnInit {
 
   publications:Array<any>
   user: any;
-  likes: number
+  likes: number;
+  error:string;
   constructor(
     private router:Router,
     private route: ActivatedRoute,
@@ -28,6 +29,11 @@ export class HomepageComponent implements OnInit {
         this.user = this.authService.getUser();
       })
     });
+  }
+  logout(){
+    this.authService.logout()
+    .catch(e => this.error = e)
+    .subscribe();
   }
  
 }

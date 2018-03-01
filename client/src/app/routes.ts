@@ -5,13 +5,15 @@ import { HomepageComponent } from './homepage/homepage.component'
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
 import { NewPublicationComponent } from './new-publication/new-publication.component';
+import { PublicationDetailComponent } from './publication-detail/publication-detail.component';
 
 export const routes: Routes = [
-    { path: '', component: SignupFormComponent},
-    { path: 'home', component: HomepageComponent},
+    { path: '', component: HomepageComponent},
+    { path: 'signup', component: SignupFormComponent},
     { path: 'login', component: LoginFormComponent},
     { path: 'profile/:id', component: ProfileComponent},
     { path: 'edit/:id', component: EditFormComponent},
     { path: 'new', component: NewPublicationComponent},
-    { path: '**', redirectTo: 'home' }
+    { path: 'post/:id', component: PublicationDetailComponent},
+    { path: '**', redirectTo: '' }   
 ];

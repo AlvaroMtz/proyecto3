@@ -6,16 +6,16 @@
       <label> Password </label>
       <input type="password" [(ngModel)]="password" name="password"/>
       <div>
-        <button (click)="signup()"> signup </button>
+        <button (click)="signup()" [routerLink]="['/profile', this.user._id]"> Signup </button>
       </div>
       <div>
-        ¿Ya estás registrado? <a href="/login">Login</a>
+        ¿Ya estás registrado? 
+        <a [routerLink]="['/login']"> Login </a>
       </div>
     </form>
     <p *ngIf="error" class="error"> {{ error }} </p>
   </div>
   
   <div *ngIf="session.getUser()">
-    <pre> {{ session.getUser() | json }} </pre>
     <button (click)="logout()"> Logout </button>
   </div>

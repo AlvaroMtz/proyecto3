@@ -15,6 +15,8 @@ import { PublicationDetailsComponent } from './publication-details/publication-d
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
 import { NewPublicationComponent } from './new-publication/new-publication.component';
+import { EditorComponent } from './editor/editor.component';
+import { PublicationDetailComponent } from './publication-detail/publication-detail.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { NewPublicationComponent } from './new-publication/new-publication.compo
     PublicationDetailsComponent,
     SignupFormComponent,
     EditFormComponent,
-    NewPublicationComponent
+    NewPublicationComponent,
+    EditorComponent,
+    PublicationDetailComponent
   ],
   imports: [
     BrowserModule,

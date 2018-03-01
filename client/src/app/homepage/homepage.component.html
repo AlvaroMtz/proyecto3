@@ -1,13 +1,28 @@
+<div *ngIf="this.publications">
     <p>menu(CAMBIAR TODO, DESARROLLO)</p>
-    <div *ngIf=this.user>
+    <div *ngIf="this.user">
         <a [routerLink]="['/profile', this.user._id]"> Mi perfil </a>
-        <a href="/new">Crear historia</a>
+        <a [routerLink]="['/new']"> Crear Historia </a>
     </div>
-
+    <div *ngIf="!this.user">
+        <h2>¿Y si te registras?</h2>
+        <a href="/signup">Signup</a>
+        <h2>¿Ya estás registrado??</h2>
+        <a href="/login">Signup</a>
+    </div>
     
-    <div *ngFor="let p of publications">
-      
-      <h3>{{ p.title }}</h3>
-       <p>{{p.text}}</p>
-       
-    </div>
+ 
+    <h2>Se está hablando...</h2>
+        <div *ngFor="let p of publications">
+                <a [routerLink]="['/post', p._id]"> <h3>{{ p.title }}</h3></a>
+            
+            <p>{{p.text}}</p>
+            <a [routerLink]="['/profile', p.userId]"> <p>{{p.creatorName}}</p> </a> 
+        </div>
+
+        <div *ngIf="this.authService.getUser()._id!=undefinded">
+                <button  (click)="logout()"> <a href="/login">Logout </a> </button>
+              </div>
+
+<h1>¡¡¡PROTEGER TODAS LAS RUTAS!!!</h1>
+</div>

@@ -35,12 +35,8 @@ export class NewPublicationComponent implements OnInit {
       })
     });
   };
-  newPub(title, text, id ){
-    console.log(title);
-    console.log(text);
-    console.log(id);
-      this.pubService.newPub(title, text, id)
+  newPub(title, text, id, name ){
+      this.pubService.newPub(title, text, id, name)
       .subscribe()
     }
-
 }

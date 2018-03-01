@@ -1,0 +1,15 @@
+
+<div *ngIf=this.publication>
+<a [routerLink]="['/home']"> Volver a Home </a>
+
+
+    <h2> {{ publication.title }}&nbsp;</h2>
+    <p>{{publication.text}}</p>
+<!-- SOLO EL CREADOR!!!! -->
+<a [routerLink]="['/home']">
+<button (click)="deletePublication()">
+   Delete
+</button>
+</a>
+</div>
+

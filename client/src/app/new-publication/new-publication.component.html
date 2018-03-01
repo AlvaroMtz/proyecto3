@@ -1,4 +1,6 @@
-<div *ngIf=this.user>
+<div *ngIf="this.user">
+
+  
     <form>
       <label> ¿Título? </label>
       <input type="title" [(ngModel)]="title" name="title" />
@@ -6,10 +8,11 @@
       <label> Contenido </label>
       <input type="text" [(ngModel)]="text" name="text" />
       <br>
-      <input type="hidden" [(ngModel)]="this.user._id" value="this.user._id">
+      <input type="hidden" [(ngModel)]="this.user._id" name="this.user._id" >
+      <input type="hidden" [(ngModel)]="this.user.username" name="this.user.username">
       <br>
-        <button (click)="newPub(title, text, this.user._id)"> Publicar</button>
-      <a href="/home">Volver a HOME</a>
-    </form>
+        <button (click)="newPub(title, text, this.user._id, this.user.username)"> Publicar</button>
+      </form>
+      <a [routerLink]="['/home']"> Volver a Home</a>
   </div>
 
