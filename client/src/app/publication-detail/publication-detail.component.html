@@ -1,15 +1,12 @@
-
 <div *ngIf=this.publication>
 <a [routerLink]="['/home']"> Volver a Home </a>
 
-
-    <h2> {{ publication.title }}&nbsp;</h2>
-    <p>{{publication.text}}</p>
+<h2> {{publication.title }}</h2>
+<div [froalaView]="publication.text"></div>
 <!-- SOLO EL CREADOR!!!! -->
 <a [routerLink]="['/home']">
-<button (click)="deletePublication()">
-   Delete
-</button>
+    <button (click)="deletePublication()">
+        Delete
+    </button>
 </a>
 </div>
-

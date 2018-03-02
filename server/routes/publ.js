@@ -14,7 +14,7 @@ router.get('/', (req, res, next) => {
 });
 
 //Get One FALTAN POR IMPLEMENTAR LOS COMENTARIOS
-router.get('/:id', (req, res, next) => {
+router.get('/publication/:id', (req, res, next) => {
     const publications = req.params.id;
     Publication.findById(req.params.id).populate('userId')
         .then(publications => {
@@ -25,8 +25,13 @@ router.get('/:id', (req, res, next) => {
                 // })
         })
 });
-
-
+router.get('/user-publication/:id', (req, res, next) => {
+    const publications = req.params.id;
+    Publication.find({userId:req.params.id}).populate('userId')
+        .then(publications => {
+            res.json(publications)
+        })
+});
 
 //New pub
 router.post('/', (req, res, next) => {

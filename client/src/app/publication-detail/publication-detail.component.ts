@@ -23,15 +23,15 @@ export class PublicationDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.getPublicationDetails(params['id']);
-
+      this.getPublication(params['id']);
+  
     });
   }
 
-  getPublicationDetails(id) {
-    this.pubService.get(id)
+  getPublication(id) {
+    this.pubService.getPublication(id)
       .subscribe((publication) => {
-        this.publication = publication;
+        this.publication = publication;        
       });
   }
 

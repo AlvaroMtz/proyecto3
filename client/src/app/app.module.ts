@@ -17,6 +17,8 @@ import { EditFormComponent } from './edit-form/edit-form.component';
 import { NewPublicationComponent } from './new-publication/new-publication.component';
 import { EditorComponent } from './editor/editor.component';
 import { PublicationDetailComponent } from './publication-detail/publication-detail.component';
+import { FroalaEditorModule } from 'angular-froala-wysiwyg/editor/editor.module';
+import { FroalaViewModule } from 'angular-froala-wysiwyg/view/view.module';
 
 
 @NgModule({
@@ -30,13 +32,15 @@ import { PublicationDetailComponent } from './publication-detail/publication-det
     EditFormComponent,
     NewPublicationComponent,
     EditorComponent,
-    PublicationDetailComponent
+    PublicationDetailComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpModule,
-    FormsModule
+    FormsModule,
+    FroalaViewModule.forRoot(),
+    FroalaEditorModule.forRoot()
   ],
   providers: [SessionService, ProfileService, PublicationsService],
   bootstrap: [AppComponent]

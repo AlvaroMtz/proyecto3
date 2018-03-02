@@ -10,19 +10,25 @@
         <h2>¿Ya estás registrado??</h2>
         <a href="/login">Signup</a>
     </div>
-    
- 
+
+
     <h2>Se está hablando...</h2>
-        <div *ngFor="let p of publications">
-                <a [routerLink]="['/post', p._id]"> <h3>{{ p.title }}</h3></a>
-            
-            <p>{{p.text}}</p>
-            <a [routerLink]="['/profile', p.userId._id]"> <p>{{p.userId.username}}</p> </a> 
-        </div>
+    <div *ngFor="let p of publications">
+        <a [routerLink]="['/post', p._id]">
+            <h3>{{ p.title }}</h3>
+        </a>
 
-        <div *ngIf="this.authService.getUser()._id!=undefinded">
-                <button  (click)="logout()"> <a href="/login">Logout </a> </button>
-              </div>
+        <div class="container_text" [froalaView]="p.text"></div>
+        <a [routerLink]="['/profile', p.userId._id]">
+            <p>{{p.userId.username}}</p>
+        </a>
+    </div>
 
-<h1>¡¡¡PROTEGER TODAS LAS RUTAS!!!</h1>
+    <div *ngIf="this.authService.getUser()._id!=undefinded">
+        <button (click)="logout()">
+            <a href="/login">Logout </a>
+        </button>
+    </div>
+
+    <h1>¡¡¡PROTEGER TODAS LAS RUTAS!!!</h1>
 </div>

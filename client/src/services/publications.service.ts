@@ -18,10 +18,16 @@ export class PublicationsService {
       .map((res) => res.json());
   }
   
-  get(id) {
-    return this.http.get(`${this.BASE_URL}/api/publications/${id}`)
+  getPublication(id) {
+    return this.http.get(`${this.BASE_URL}/api/publications/publication/${id}`)
       .map((res) => res.json());
   }
+
+  getUserPublication(id) {
+    return this.http.get(`${this.BASE_URL}/api/publications/user-publication/${id}`)
+      .map((res) => res.json());
+  }
+
 
   newPub(title:string, text:string, userId:string){
     return this.http.post(`${this.BASE_URL}/api/publications`, {title, text, userId})

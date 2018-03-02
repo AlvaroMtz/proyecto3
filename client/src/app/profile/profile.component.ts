@@ -12,7 +12,7 @@ import { PublicationsService } from '../../services/publications.service';
 })
 export class ProfileComponent implements OnInit {
   user:any;
-  publications:any;
+  publication:any;
   constructor(
     private router:Router,
     private route: ActivatedRoute,
@@ -24,18 +24,27 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.getUserDetails(params['id']);
+      this.getUserPublication(params['id']);
       this.pubService.getList().subscribe(list => {
-        this.publications = list;
+        this.publication = list;
         this.user = this.pS.getUser();
-      })
-    
+      }) 
     });
+  }
+
+  getUserPublication(id) {
+    this.pubService.getUserPublication(id)
+      .subscribe((publication) => {
+        this.publication = publication;  
+        console.log(this.publication)      
+      });
   }
  
   getUserDetails(id) {
     this.pS.get(id)
       .subscribe((user) => {
         this.user = user;
+        console.log(this.user)
       });
   }
 
