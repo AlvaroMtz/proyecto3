@@ -35,8 +35,7 @@ export class ProfileComponent implements OnInit {
   getUserPublication(id) {
     this.pubService.getUserPublication(id)
       .subscribe((publication) => {
-        this.publication = publication;  
-        console.log(this.publication)      
+        this.publication = publication;       
       });
   }
  
@@ -44,7 +43,6 @@ export class ProfileComponent implements OnInit {
     this.pS.get(id)
       .subscribe((user) => {
         this.user = user;
-        console.log(this.user)
       });
   }
 
