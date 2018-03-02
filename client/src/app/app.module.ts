@@ -19,6 +19,9 @@ import { EditorComponent } from './editor/editor.component';
 import { PublicationDetailComponent } from './publication-detail/publication-detail.component';
 import { FroalaEditorModule } from 'angular-froala-wysiwyg/editor/editor.module';
 import { FroalaViewModule } from 'angular-froala-wysiwyg/view/view.module';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import { PagerService } from '../services/pageservice.service';
+import { FollowService } from '../services/follow.service';
 
 
 @NgModule({
@@ -40,9 +43,11 @@ import { FroalaViewModule } from 'angular-froala-wysiwyg/view/view.module';
     HttpModule,
     FormsModule,
     FroalaViewModule.forRoot(),
-    FroalaEditorModule.forRoot()
+    FroalaEditorModule.forRoot(),
+    MatButtonModule, 
+    MatCheckboxModule,
   ],
-  providers: [SessionService, ProfileService, PublicationsService],
+  providers: [SessionService, ProfileService, PublicationsService, PagerService, FollowService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

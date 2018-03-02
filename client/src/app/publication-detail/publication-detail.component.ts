@@ -13,6 +13,7 @@ import { ProfileService } from '../../services/profile.service';
 export class PublicationDetailComponent implements OnInit {
 
   publication:any;
+  user:any;
 
   constructor(
     private router:Router,
@@ -24,6 +25,7 @@ export class PublicationDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.getPublication(params['id']);
+      this.user = this.authService.getUser();
   
     });
   }

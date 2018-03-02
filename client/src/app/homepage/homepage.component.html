@@ -13,15 +13,25 @@
 
 
     <h2>Se está hablando...</h2>
-    <div *ngFor="let p of publications">
-        <a [routerLink]="['/post', p._id]">
-            <h3>{{ p.title }}</h3>
-        </a>
+    <div class="flexContainer flexSpaceAround">
+    <div class="col" *ngFor="let p of publications">
+            <div class="row">
+                <div class="col s12 m7">
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="img" src="https://estaticos.elperiodico.com/resources/jpg/4/5/1469204435754.jpg">
+                            <span class="card-title">{{p.title}}</span>
+                        </div>
+                        <div class="card-content container_text" [froalaView]="p.text">
 
-        <div class="container_text" [froalaView]="p.text"></div>
-        <a [routerLink]="['/profile', p.userId._id]">
-            <p>{{p.userId.username}}</p>
-        </a>
+                        </div>
+                        <div class="card-action">
+                            <a [routerLink]="['/post', p._id]">Leer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div *ngIf="this.authService.getUser()._id!=undefinded">

@@ -12,9 +12,10 @@ const generateCrud = require('./routes/crud');
 const cors = require('cors');
 const auth = require('./routes/auth');
 const publ = require('./routes/publ')
-const user = require('./routes/user');
 const Publication = require('./models/Publication');
 const Coment = require('./models/Coment')
+const follow = require('./routes/followController')
+const User = require('./models/User')
 
 const app = express();
 
@@ -57,13 +58,14 @@ app.use(session({
 
 require('./passport')(app)
 
-const User = require('./models/User')
+
 
 
 
 app.use('/api/auth', auth);
 app.use('/api/publications/', publ)
 app.use('/api/user/', generateCrud(User));
+app.use('/api/follow', User);
 // app.use('/api/publications/', generateCrud(Publication));
 
 

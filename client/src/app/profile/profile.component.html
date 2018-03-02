@@ -1,25 +1,31 @@
 <div *ngIf=this.publication>
-<a [routerLink]="['/home']"> Back Home </a>
+  <a [routerLink]="['/home']"> Back Home </a>
 
 
-<div class="user-info">
-  <h2> {{ this.user.username }}&nbsp;</h2>
-  <h3> {{ this.user.email }} </h3>
-  <p>{{user.description}}</p>
-</div>
+  <div class="user-info">
+    <h2> {{ this.user.username }}&nbsp;</h2>
+    <h3> {{ this.user.email }} </h3>
+    <p>{{user.description}}</p>
+  </div>
 
   <div *ngIf="this.sessionService.getUser()._id==user._id">
-    <a [routerLink]="['/edit', this.user._id]"> SOLUCIONARLO, CUALQUIERA PUEDE EDITAR CUALQUIER PERFIL Editar mi perfil</a>
+    <a [routerLink]="['/edit', this.user._id]"> Editar mi perfil</a>
   </div>
   <div *ngIf="this.sessionService.getUser()._id!=user._id">
-    Follow
+      <div *ngIf=this.user>
+    <form>
+      <input type="text" [(ngModel)]="user._id" name="useriD">
+      <input type="text" [(ngModel)]="this.sessionService.getUser()._id" name="this.sessionService.getUser()._id">
+      <button (click)="followUser(user._id, this.sessionService.getUser()._id)" >Follow</button>
+    </form>
   </div>
-
-
-<div *ngFor="let p of publication">
-  <h2>{{p.title}}</h2>
-  <div class="container_text" [froalaView]="p.text"></div>
-
-
 </div>
+
+
+  <div *ngFor="let p of publication">
+    <h2>{{p.title}}</h2>
+    <div class="container_text" [froalaView]="p.text"></div>
+
+
+  </div>
 </div>

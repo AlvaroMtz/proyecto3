@@ -12,7 +12,9 @@
       <input type="hidden" [(ngModel)]="this.user._id" name="this.user._id" >
       <input type="hidden" [(ngModel)]="this.user.username" name="this.user.username">
       <br>
-        <button (click)="newPub(title, text, this.user._id, this.user.username)"> Publicar</button>
+      <a  [routerLink]="['/home']">
+        <button  (click)="newPub(title, text, this.user._id, this.user.username)"> Publicar</button>
+      </a>
       </form>
       <a [routerLink]="['/home']"> Volver a Home</a>
   </div>

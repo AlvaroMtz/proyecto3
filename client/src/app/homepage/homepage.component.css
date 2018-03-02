@@ -1,5 +1,9 @@
-.container_text{
-    align-content: center;
-    width: 50%;
-    height: 50%;
+.container {
+    display: flex; /* or inline-flex */
+    width: 33%;
+    border: 1px solid black;
+    flex-direction: row
+  }
+.img{
+    width: 100px;
 }
