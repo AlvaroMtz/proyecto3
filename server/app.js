@@ -16,7 +16,6 @@ const Publication = require('./models/Publication');
 const Coment = require('./models/Coment')
 const follow = require('./routes/followController')
 const User = require('./models/User')
-
 const app = express();
 
 mongoose.connect(dbURL)
@@ -58,14 +57,10 @@ app.use(session({
 
 require('./passport')(app)
 
-
-
-
-
 app.use('/api/auth', auth);
 app.use('/api/publications/', publ)
 app.use('/api/user/', generateCrud(User));
-app.use('/api/follow', User);
+app.use('/api/follow', follow);
 // app.use('/api/publications/', generateCrud(Publication));
 
 

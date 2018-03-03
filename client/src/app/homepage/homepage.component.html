@@ -2,13 +2,14 @@
     <p>menu(CAMBIAR TODO, DESARROLLO)</p>
     <div *ngIf="this.user">
         <a [routerLink]="['/profile', this.user._id]"> Mi perfil </a>
+        <br>
         <a [routerLink]="['/new']"> Crear Historia </a>
     </div>
     <div *ngIf="!this.user">
         <h2>¿Y si te registras?</h2>
         <a href="/signup">Signup</a>
         <h2>¿Ya estás registrado??</h2>
-        <a href="/login">Signup</a>
+        <a href="/login">LogIn</a>
     </div>
 
 
@@ -28,6 +29,7 @@
                         <div class="card-action">
                             <a [routerLink]="['/post', p._id]">Leer</a>
                         </div>
+                        <a [routerLink]="['/profile', p.userId._id]"><p>{{p.userId.username}}</p> </a>
                     </div>
                 </div>
             </div>

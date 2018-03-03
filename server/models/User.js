@@ -7,8 +7,6 @@ const userSchema = new Schema({
   username: String,
   password: String,
   email: String,
-  followed: [{ type: Schema.Types.ObjectId, ref: 'User', required: true }],
-  following: [{ type: Schema.Types.ObjectId, ref: 'User', required: true }],
   //image here
   description: String,
   short_story: String,

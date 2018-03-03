@@ -4,6 +4,7 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const debug = require('debug')("server:auth");
 const passport = require('passport')
+const follow = require("./followController")
 
 let loginPromise = (req, user) => {
   return new Promise((resolve,reject) => {
