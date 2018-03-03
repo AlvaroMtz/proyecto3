@@ -1,46 +1,61 @@
-<div *ngIf="this.publications">
-    <p>menu(CAMBIAR TODO, DESARROLLO)</p>
-    <div *ngIf="this.user">
-        <a [routerLink]="['/profile', this.user._id]"> Mi perfil </a>
-        <br>
-        <a [routerLink]="['/new']"> Crear Historia </a>
-    </div>
-    <div *ngIf="!this.user">
-        <h2>¿Y si te registras?</h2>
-        <a href="/signup">Signup</a>
-        <h2>¿Ya estás registrado??</h2>
-        <a href="/login">LogIn</a>
-    </div>
+<main>
+    <ul class="menu" role="navigation">
+        <li>
+            <i class="fa fa-home"></i>Home</li>
+        <li>
+            <i class="fa fa-bell-o"></i>
+        </li>
+        <li>
+            <i class="fa fa-envelope-o"></i>Messages</li>
+        <li class="menu__bird">
+            <p class="p">STORIES</p>
+            <!-- <i class="fa fa-menu">
+                  STORIES
+              </i> -->
+        </li>
+        <li>
+            <i class="fa fa-user-circle-o"></i>
+        </li>
+        <li [routerLink]="['/new']">
+            <button>Escribir</button>
+        </li>
+    </ul>
+</main>
+
+<div class="container">
+    <div class="row header">
+        <div class="col-sm-12">
+
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Se está hablando...</h2>
 
 
-    <h2>Se está hablando...</h2>
-    <div class="flexContainer flexSpaceAround">
-    <div class="col" *ngFor="let p of publications">
-            <div class="row">
-                <div class="col s12 m7">
-                    <div class="card">
-                        <div class="card-image">
-                            <img class="img" src="https://estaticos.elperiodico.com/resources/jpg/4/5/1469204435754.jpg">
-                            <span class="card-title">{{p.title}}</span>
-                        </div>
-                        <div class="card-content container_text" [froalaView]="p.text">
+                <div class=" row ">
+                    <div *ngFor="let p of publications; let i = index">
+                        <div *ngIf="i < 4">
+                            <div class="col m4">
 
+
+                                <div class="card" style="width: 20rem;">
+                                    <img class="card-img-top img-thumbnail" src="https://estaticos.elperiodico.com/resources/jpg/4/5/1469204435754.jpg" alt="Card image cap">
+                                    <div class="card-block">
+                                        <h4 class="card-title">{{p.title}}</h4>
+                                        <h5 class="card-title">Escrito por <a [routerLink]="['/profile', p.userId._id]">{{p.userId.username}}</a></h5>
+                                        <p class="card-text">{{p.resume}}</p>
+                                        <a [routerLink]="['/post', p._id]" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                </div>
+
+
+                                <a [routerLink]="['/profile', p.userId._id]"></a>
+
+                            </div>
                         </div>
-                        <div class="card-action">
-                            <a [routerLink]="['/post', p._id]">Leer</a>
-                        </div>
-                        <a [routerLink]="['/profile', p.userId._id]"><p>{{p.userId.username}}</p> </a>
                     </div>
                 </div>
             </div>
+            <div class="col-md-6"></div>
         </div>
     </div>
-
-    <div *ngIf="this.authService.getUser()._id!=undefinded">
-        <button (click)="logout()">
-            <a href="/login">Logout </a>
-        </button>
-    </div>
-
-    <h1>¡¡¡PROTEGER TODAS LAS RUTAS!!!</h1>
-</div>

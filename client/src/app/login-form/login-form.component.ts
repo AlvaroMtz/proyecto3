@@ -10,6 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class LoginFormComponent implements OnInit {
 
+  
+
   username:string;
   password:string;
   error:string;

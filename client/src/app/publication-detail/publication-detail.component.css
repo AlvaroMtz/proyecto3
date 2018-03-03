@@ -1,0 +1,127 @@
+.menu {
+    display: flex;
+  }
+  
+  .menu__bird {
+    margin-left: auto;
+    margin-right: auto
+  }
+  li{
+    list-style:none;
+  }
+  .menu {
+    border: 1px solid red;
+    height: 60px;
+    align-items: center;
+    padding: 0 15px;
+    border: 1px solid rgba(238,238,238 ,1);
+    border-radius: 5px;
+    color: rgba(117,117,117 ,1);
+    box-shadow: 5px 10px 20px -20px rgba(85,172,238 ,1);
+  }
+  .menu li {
+    cursor: pointer;
+  }
+  .menu li:hover{
+    color: rgba(85,172,238 ,1);
+  }
+  .menu__bird {
+    color: rgba(85,172,238 ,1);
+    font-size: 1.3em;
+  }
+  #p{
+    color: rgba(85,172,238 ,1);
+    font-size: 1.3em;
+  }
+  .menu li:not(:last-child):not(.menu__bird) {
+    margin-right: 10px;
+  }
+  .menu li  i:not(.fa-menu):not(.fa-search):not(.fa-user-circle-o) {
+    margin-right: 3px;
+  }
+  .menu li > button {
+    font-size: 0.8em;
+    border: 0;
+    background: rgba(85,172,238 ,1);
+    color: #fff;
+    border-radius: 100px;
+  }
+
+@keyframes clap {
+    0% {
+      opacity: 0;
+      transorm: scale(0);
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(-100px) scale(1);
+    }
+    80%{
+      transform: translateY(-190px) scale(0.6);
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0;
+    }
+    70% {
+      box-shadow: 0 0 5px 10px rgba(255, 255, 255, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+  }
+  
+  /* Layout and positioning styles */
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+  }
+  .claps_button {
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #02b875;
+    color: #02b875;
+    width: 66px;
+    height: 66px;
+    outline: 0;
+    cursor: pointer;
+    filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.05));
+    transform: scale(1);
+    transition: all .1s ease-in;
+    z-index: 1;
+    fill: #02b875;
+    pointer-events: visible;
+  }
+  .claps {
+    /* opacity: 0; */
+    border-radius: 50%;
+    background-color: #02b875;
+    color: #fff;
+    position: absolute;
+    width: 66px;
+    height: 66px;
+    border: none;
+    z-index: 0;
+  }
+  
+  /* initiates the transforms */
+  button.is_clicked ~ button.claps {
+    animation: clap 1s ease-in-out forwards;
+  }
+  button.claps_button:hover {
+    border-color: #02b875;
+    color: #00ab6b;
+    fill: #00ab6b;
+    animation: pulse 2s infinite;
+  }
+  
+  

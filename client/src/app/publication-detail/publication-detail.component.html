@@ -1,17 +1,51 @@
+<main>
+    <ul class="menu" role="navigation">
+        <li>
+            <i class="fa fa-home"></i>Home</li>
+        <li>
+            <i class="fa fa-bell-o"></i>
+        </li>
+        <li>
+            <i class="fa fa-envelope-o"></i>Messages</li>
+        <li class="menu__bird">
+            <p class="p">STORIES</p>
+            <!-- <i class="fa fa-menu">
+                      STORIES
+                  </i> -->
+        </li>
+        <li>
+            <i class="fa fa-user-circle-o"></i>
+        </li>
+        <li [routerLink]="['/new']">
+            <button>Escribir</button>
+        </li>
+    </ul>
+</main>
 <div *ngIf=this.publication>
-<a [routerLink]="['/home']"> Volver a Home </a>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+            </div>
 
-<h2> {{publication.title }}</h2>
-<div [froalaView]="publication.text"></div>
-<!-- SOLO EL CREADOR!!!! -->
-<a [routerLink]="['/profile', publication.userId._id]"><p>{{publication.userId.username}}</p> </a>
+            <div class="col-md-5">
+                <a [routerLink]="['/home']"> Volver a Home </a>
+
+                <h2> {{publication.title }}</h2>
+                <div [froalaView]="publication.text"></div>
+                <!-- SOLO EL CREADOR!!!! -->
+                <a [routerLink]="['/profile', publication.userId._id]">
+                    <p>{{publication.userId.username}}</p>
+                </a>
 
 
-<a [routerLink]="['/home']">
+                <a [routerLink]="['/home']">
 
-    <button (click)="deletePublication()">
-        Delete
-    </button>
-</a>
+                    <button (click)="deletePublication()">
+                        Delete
+                    </button>
+                </a>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
 </div>
-

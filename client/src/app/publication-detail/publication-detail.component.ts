@@ -12,6 +12,8 @@ import { ProfileService } from '../../services/profile.service';
 })
 export class PublicationDetailComponent implements OnInit {
 
+  
+
   publication:any;
   user:any;
 
@@ -28,6 +30,11 @@ export class PublicationDetailComponent implements OnInit {
       this.user = this.authService.getUser();
   
     });
+    var pageContent = document.getElementById("content"),
+	pagecopy = pageContent.cloneNode(true),
+	blurryContent = document.getElementById("blurryscroll");
+	blurryContent.appendChild(pagecopy);
+	window.onscroll = function() { blurryContent.scrollTop = window.pageYOffset; }
   }
 
   getPublication(id) {

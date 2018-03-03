@@ -1,13 +1,32 @@
 <div *ngIf="this.user">
-
+    <main>
+        <ul class="twitter" role="navigation">
+          <li><i class="fa fa-home"></i>Home</li>
+          <li><i class="fa fa-bell-o"></i></li>
+          <li><i class="fa fa-envelope-o"></i>Messages</li>
+          <li class="twitter__bird">
+              <p>STORIES</p>
+              <!-- <i class="fa fa-twitter">
+                  STORIES
+              </i> -->
+            </li>
+          <li><i class="fa fa-user-circle-o"></i></li>
+          <li><button>Escribir</button></li>
+        </ul>
+</main>
   
     <form>
-      <label> ¿Título? </label>
-      <input type="title" [(ngModel)]="title" name="title" />
+      <label> Título </label>
       <br>
-      <label> Contenido </label>
-      <!-- <input type="text" [(ngModel)]="text" name="text" /> -->
+      <input class="title" type="title" [(ngModel)]="title" name="title" />
+      <br>
+      Resumen (120 caracteres)
+      <br>
+      <input class="resume" type="resume" [(ngModel)]="resume" name="resume" maxlength="120"/>
+      <br>
+      <div class="editor" >
       <div [froalaEditor] type="text" [(ngModel)]="text" name="text" >Hello Mundo!</div>
+    </div>
       <br>
       <input type="hidden" [(ngModel)]="this.user._id" name="this.user._id" >
       <input type="hidden" [(ngModel)]="this.user.username" name="this.user.username">
