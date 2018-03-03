@@ -17,7 +17,6 @@ router.post('/', (req, res, next) => {
     .catch(err => res.status(500).json(err))
 });
 
-
 router.post('/new', (req, res, next) => {
   const newFollow = new Follow({
     userId: req.body.userId
@@ -26,8 +25,6 @@ router.post('/new', (req, res, next) => {
     .then(publi => res.status(200).json(publi))
     .catch(err => res.status(500).json(err))
 });
-
-
 
 module.exports = router;
 

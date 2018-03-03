@@ -6,7 +6,7 @@
       <label> Password </label>
       <input type="password" [(ngModel)]="password" name="password"/>
       <div>
-        <button (click)="signup()" [routerLink]="['/home']"> Signup </button>
+        <button (click)="signup()" > Signup </button>
       </div>
       <div>
         ¿Ya estás registrado? 
@@ -17,5 +17,5 @@
   </div>
   
   <div *ngIf="session.getUser()">
-    <button (click)="logout()"> Logout </button>
+    <button (click)="logout()  "> Logout </button>
   </div>

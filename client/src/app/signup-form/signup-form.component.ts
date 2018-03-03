@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../services/session.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { FollowService } from '../../services/follow.service';
 
 
 @Component({
@@ -17,17 +18,24 @@ export class SignupFormComponent implements OnInit {
   constructor(
     public session:SessionService,
     private router:Router,
-    private route: ActivatedRoute,  
+    private route: ActivatedRoute,
+    private followService: FollowService,  
   ) { }
 
   ngOnInit() {
   }
 
+postModel(userId){
+  this.followService.postModel(userId)
+  .subscribe();
+
+}
+
   signup(){
     this.session.signup(this.username,this.password)
     .catch(e => this.error = e)
     .subscribe( m => {
-      this.router.navigate(['user/:id']);
+      this.router.navigate(['home']);
     });
   }
 

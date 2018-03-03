@@ -52,8 +52,9 @@ export class ProfileComponent implements OnInit {
   }
 
   followUser(userId, currentId){
-    console.log(userId)
-    console.log(currentId)
+    console.log(userId, currentId)
+    this.followService.postid(userId, currentId)
+      .subscribe(()=>{})
   }
 }
 

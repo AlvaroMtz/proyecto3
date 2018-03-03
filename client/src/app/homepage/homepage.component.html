@@ -10,8 +10,8 @@
         <li class="menu__bird">
             <p class="p">STORIES</p>
             <!-- <i class="fa fa-menu">
-                  STORIES
-              </i> -->
+STORIES
+</i> -->
         </li>
         <li>
             <i class="fa fa-user-circle-o"></i>
@@ -21,17 +21,13 @@
         </li>
     </ul>
 </main>
-
 <div class="container">
     <div class="row header">
         <div class="col-sm-12">
-
         </div>
         <div class="row">
             <div class="col-md-6">
                 <h2>Se está hablando...</h2>
-
-
                 <div class=" row ">
                     <div *ngFor="let p of publications; let i = index">
                         <div *ngIf="i < 4">
@@ -42,7 +38,9 @@
                                     <img class="card-img-top img-thumbnail" src="https://estaticos.elperiodico.com/resources/jpg/4/5/1469204435754.jpg" alt="Card image cap">
                                     <div class="card-block">
                                         <h4 class="card-title">{{p.title}}</h4>
-                                        <h5 class="card-title">Escrito por <a [routerLink]="['/profile', p.userId._id]">{{p.userId.username}}</a></h5>
+                                        <h5 class="card-title">Escrito por
+                                            <a [routerLink]="['/profile', p.userId._id]">{{p.userId.username}}</a>
+                                        </h5>
                                         <p class="card-text">{{p.resume}}</p>
                                         <a [routerLink]="['/post', p._id]" class="btn btn-primary">Go somewhere</a>
                                     </div>
@@ -59,3 +57,5 @@
             <div class="col-md-6"></div>
         </div>
     </div>
+
+    <button (click)="logout()">Logout</button>
