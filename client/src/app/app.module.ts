@@ -1,22 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { routes } from './routes';
-import { LoginFormComponent } from './login-form/login-form.component';
+import { LoginFormComponent } from './auth/login-form/login-form.component';
 import { SessionService } from '../services/session.service';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './auth/profile/profile.component';
 import { ProfileService } from '../services/profile.service';
 import { HomepageComponent } from './homepage/homepage.component';
 import { PublicationsService } from '../services/publications.service';
-import { PublicationDetailsComponent } from './publication-details/publication-details.component';
-import { SignupFormComponent } from './signup-form/signup-form.component';
-import { EditFormComponent } from './edit-form/edit-form.component';
-import { NewPublicationComponent } from './new-publication/new-publication.component';
-import { EditorComponent } from './editor/editor.component';
-import { PublicationDetailComponent } from './publication-detail/publication-detail.component';
+import { SignupFormComponent } from './auth/signup-form/signup-form.component';
+import { EditFormComponent } from './blog/edit-form/edit-form.component';
+import { NewPublicationComponent } from './blog/new-publication/new-publication.component';
+import { EditorComponent } from './blog/editor/editor.component';
+import { PublicationDetailComponent } from './blog/publication-detail/publication-detail.component';
 import { FroalaEditorModule } from 'angular-froala-wysiwyg/editor/editor.module';
 import { FroalaViewModule } from 'angular-froala-wysiwyg/view/view.module';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
@@ -31,7 +30,6 @@ import { AgmCoreModule } from '@agm/core';
     LoginFormComponent,
     ProfileComponent,
     HomepageComponent,
-    PublicationDetailsComponent,
     SignupFormComponent,
     EditFormComponent,
     NewPublicationComponent,
@@ -51,7 +49,8 @@ import { AgmCoreModule } from '@agm/core';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDD7O6HHT6jro5hISW54q9Fqt3JnXgLx8Y',
       libraries: ["places"]
-    })
+    }),
+    ReactiveFormsModule,
   ],
   providers: [SessionService, ProfileService, PublicationsService, PagerService, FollowService],
   bootstrap: [AppComponent]

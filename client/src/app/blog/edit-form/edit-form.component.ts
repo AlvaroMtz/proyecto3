@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { PublicationsService } from '../../services/publications.service';
-import { SessionService } from '../../services/session.service';
-import { ProfileService } from '../../services/profile.service';
+import { PublicationsService } from '../../../services/publications.service';
+import { SessionService } from '../../../services/session.service';
+import { ProfileService } from '../../../services/profile.service';
 
 @Component({
   selector: 'app-edit-form',

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SessionService } from '../../services/session.service';
+import { SessionService } from '../../../services/session.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { FollowService } from '../../services/follow.service';
+import { FollowService } from '../../../services/follow.service';
 
 
 @Component({

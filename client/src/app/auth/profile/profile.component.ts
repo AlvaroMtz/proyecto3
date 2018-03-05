@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { ProfileService } from '../../services/profile.service';
-import { SessionService } from '../../services/session.service';
-import { PublicationsService } from '../../services/publications.service';
-import { FollowService } from '../../services/follow.service';
+import { ProfileService } from '../../../services/profile.service';
+import { SessionService } from '../../../services/session.service';
+import { PublicationsService } from '../../../services/publications.service';
+import { FollowService } from '../../../services/follow.service';
 
 @Component({
   selector: 'app-profile',

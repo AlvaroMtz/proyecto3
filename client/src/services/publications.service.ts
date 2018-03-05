@@ -31,8 +31,8 @@ export class PublicationsService {
   }
 
 
-  newPub(title:string, text:string, userId:string){
-    return this.http.post(`${this.BASE_URL}/api/publications`, {title, text, userId})
+  newPub(title:string, text:string, userId:string, lat:number, lng:number){
+    return this.http.post(`${this.BASE_URL}/api/publications`, {title, text, userId, lat, lng})
     .map((res) => res.json());
   }
   

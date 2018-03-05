@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { LoginFormComponent } from './login-form/login-form.component';
-import { ProfileComponent } from './profile/profile.component';
+import { LoginFormComponent } from './auth/login-form/login-form.component';
+import { ProfileComponent } from './auth/profile/profile.component';
 import { HomepageComponent } from './homepage/homepage.component'
-import { SignupFormComponent } from './signup-form/signup-form.component';
-import { EditFormComponent } from './edit-form/edit-form.component';
-import { NewPublicationComponent } from './new-publication/new-publication.component';
-import { PublicationDetailComponent } from './publication-detail/publication-detail.component';
+import { SignupFormComponent } from './auth/signup-form/signup-form.component';
+import { EditFormComponent } from './blog/edit-form/edit-form.component';
+import { NewPublicationComponent } from './blog/new-publication/new-publication.component';
+import { PublicationDetailComponent } from './blog/publication-detail/publication-detail.component';
 
 export const routes: Routes = [
     { path: '', component: HomepageComponent},

@@ -53,17 +53,15 @@
             <div class="col-md-2"></div>
         </div>
     </div>
-
-    <div class="map">
-        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="3">
-            <agm-marker [latitude]="p.lat" [longitude]="p.lng"></agm-marker>
+    <div class="container map">
+        <h3>Escoge un lugar</h3>
+        <div class="form-group">
+          <input placeholder="search for location" autocorrect="on" autocapitalize="on" spellcheck="on" type="text" class="form-control" #search [formControl]="searchControl">
+        </div>
+        <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+          <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
         </agm-map>
-    </div>
-    <input id="lat" [(ngModel)]="lat" name="lat" placeholder="Latitude" style="">
-    <input id="lon" [(ngModel)]="lng" name="log" placeholder="Longitude" style="visibility:hidden">
-
-    
-
+      </div>
     <div class="container create">
         <div class="">
             <div class="col-md-2"></div>
@@ -86,6 +84,8 @@
                     <br>
                     <input type="hidden" [(ngModel)]="this.user._id" name="this.user._id" >
                     <input type="hidden" [(ngModel)]="this.user.username" name="this.user.username">
+                    <input id="lat" [(ngModel)]="latitude" name="lat" placeholder="Latitude" style="visibility:hidden">
+                    <input id="lon" [(ngModel)]="longitude" name="log" placeholder="Longitude" style="visibility:hidden">
                     <br>
                     <a  [routerLink]="['/home']">
                       <button  (click)="newPub(title, text, this.user._id, this.user.username)"> Publicar</button>
