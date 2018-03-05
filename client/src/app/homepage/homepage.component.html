@@ -1,61 +1,117 @@
-<main>
-    <ul class="menu" role="navigation">
-        <li>
-            <i class="fa fa-home"></i>Home</li>
-        <li>
-            <i class="fa fa-bell-o"></i>
-        </li>
-        <li>
-            <i class="fa fa-envelope-o"></i>Messages</li>
-        <li class="menu__bird">
-            <p class="p">STORIES</p>
-            <!-- <i class="fa fa-menu">
-STORIES
-</i> -->
-        </li>
-        <li>
-            <i class="fa fa-user-circle-o"></i>
-        </li>
-        <li [routerLink]="['/new']">
-            <button>Escribir</button>
-        </li>
-    </ul>
-</main>
-<div class="container">
-    <div class="row header">
-        <div class="col-sm-12">
+<div *ngIf=this.user>
+    <nav class="navbar navbar-trans navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" [routerLink]="['/home']">STORIES</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right rigth">
+                    <li class="dropdown">
+                        <!-- Intentar poneer la imagen de perfil -->
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <img class="smallprofile" src="https://image.freepik.com/iconos-gratis/perfil-macho-sombra-de-usuario_318-40244.jpg" alt="">
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a [routerLink]="['/signup']">¿No estás registrado?</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a [routerLink]="['/new']">Nueva historia</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a [routerLink]="['/profile', user._id]">Mi perfil</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a href="#">¿A quién sigues?</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <button (click)="logout()"> Logout </button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <h2>Se está hablando...</h2>
-                <div class=" row ">
-                    <div *ngFor="let p of publications; let i = index">
-                        <div *ngIf="i < 4">
-                            <div class="col m4">
+    </nav>
 
-
-                                <div class="card" style="width: 20rem;">
-                                    <img class="card-img-top img-thumbnail" src="https://estaticos.elperiodico.com/resources/jpg/4/5/1469204435754.jpg" alt="Card image cap">
-                                    <div class="card-block">
-                                        <h4 class="card-title">{{p.title}}</h4>
-                                        <h5 class="card-title">Escrito por
-                                            <a [routerLink]="['/profile', p.userId._id]">{{p.userId.username}}</a>
-                                        </h5>
-                                        <p class="card-text">{{p.resume}}</p>
-                                        <a [routerLink]="['/post', p._id]" class="btn btn-primary">Go somewhere</a>
-                                    </div>
+    <div class="map">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="3">
+            <div *ngFor="let p of publications; let i = index">
+            <agm-marker [latitude]="p.lat" [longitude]="p.lng"></agm-marker>
+            </div>
+        </agm-map>
+    </div>
+    <div class="container_left">
+        <h2 class="left_title">Historias populares</h2>
+        <div *ngFor="let p of publications; let i = index">
+            <div *ngIf="i < 4">
+                <div class="col m4">
+                    <div class="container">
+                        <div class="post-card">
+                            <div class="post-card__nav">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="active">
+                                            <i class="ion ion-ios-eye"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="ion ion-ios-location"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="ion ion-android-star"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="post-card__content">
+                                <div class="post-card__info">
+                                    <h1>{{p.title}}</h1>
+                                    <h5>184&nbsp;
+                                        <span>Reviews</span>
+                                    </h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas doloribus dolorum ratione
+                                        optio. Tenetur id fugiat totam, ducimus velit? Officia mollitia reiciendis ipsum!</p>
+                                    <a href="#">Read more</a>
                                 </div>
-
-
-                                <a [routerLink]="['/profile', p.userId._id]"></a>
-
+                            </div>
+                            <div class="post-card__img" id="post-card__img">
+                                <div class="post-card__social">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <i class="ion ion-chatbox"></i>
+                                                <span>736</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="ion ion-heart"></i>
+                                                <span>1025</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6"></div>
         </div>
     </div>
-
-    <button (click)="logout()">Logout</button>
+</div>

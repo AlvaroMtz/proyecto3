@@ -22,6 +22,7 @@ import { FroalaViewModule } from 'angular-froala-wysiwyg/view/view.module';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import { PagerService } from '../services/pageservice.service';
 import { FollowService } from '../services/follow.service';
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { FollowService } from '../services/follow.service';
     NewPublicationComponent,
     EditorComponent,
     PublicationDetailComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,10 @@ import { FollowService } from '../services/follow.service';
     FroalaEditorModule.forRoot(),
     MatButtonModule, 
     MatCheckboxModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDD7O6HHT6jro5hISW54q9Fqt3JnXgLx8Y',
+      libraries: ["places"]
+    })
   ],
   providers: [SessionService, ProfileService, PublicationsService, PagerService, FollowService],
   bootstrap: [AppComponent]

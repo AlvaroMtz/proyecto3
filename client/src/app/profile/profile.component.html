@@ -1,33 +1,96 @@
-<div *ngIf=this.publication>
-  <a [routerLink]="['/home']"> Back Home </a>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" [routerLink]="['/home']">STORIES</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <!-- Intentar poneer la imagen de perfil -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{user.username}}
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a [routerLink]="['/new']">Nueva historia</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a [routerLink]="['/profile', user._id]">Mi perfil</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a href="#">¿A quién sigues?</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a href="#">LOGOUT</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 
-  <div class="user-info">
-    <h2> {{ this.user.username }}&nbsp;</h2>
-    <h3> {{ this.user.email }} </h3>
-    <p>{{user.description}}</p>
+
+<div class="header">
+  <div class="imagen">
+    <img src="https://image.freepik.com/iconos-gratis/perfil-macho-sombra-de-usuario_318-40244.jpg" class="img-rounded" alt="">
   </div>
-
-  <div *ngIf="this.sessionService.getUser()._id==user._id">
-    <a [routerLink]="['/edit', this.user._id]"> Editar mi perfil</a>
+  <div class="name">
+    {{user.username}}
   </div>
-  <div *ngIf="this.sessionService.getUser()._id!=user._id">
-      <div *ngIf=this.user>
-    <form>
-      <input type="text" [(ngModel)]="user._id" name="useriD">
-      <input type="text" [(ngModel)]="this.sessionService.getUser()._id" name="this.sessionService.getUser()._id">
-      <button (click)="followUser(user._id, this.sessionService.getUser()._id)" >Follow</button>
-    </form>
+  <div class="container container1">
+    <div class="row">
+      <div class="col-md-4 ">
+        <p class="aportaciones"><i class="fal fa-paper-plane"></i> 15</p>
+      </div>
+      <div class="col-md-4">
+        <p class="follower">50</p>
+      </div>
+      <div class="col-md-4">
+        <p class="following">60</p>
+      </div>
+    </div>
   </div>
 </div>
 
-<button (click)="logout()" >Logout</button>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3  profile">
+      <p>Nombre: {{user.name}}</p>
+      <p>Apellidos: {{user.surname}}</p>
+      <p>Nick: {{user.username}}</p>
+      <p>Email: {{user.email}}</p>
+      <ul>
+        <li>
+          REDES SOCIALES
+        </li>
+        <li>
+          REDES SOCIALES
+        </li>
+        <li>
+          REDES SOCIALES
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-9 publications">
+      <div *ngFor="let p of publication">
+        <P>AQUÍ VA LA IMAGEN DEL ARTÍCULO</P>
+        <h2>{{p.title}}</h2>
+        <p>AQUÍ VA EL RESUMEN</p>
+        <a href="">AQUÍ VA EL LINK AL ARTÍCULO</a>
 
-
-  <div *ngFor="let p of publication">
-    <h2>{{p.title}}</h2>
-    <div class="container_text" [froalaView]="p.text"></div>
-
-
+      </div>
+    </div>
   </div>
 </div>

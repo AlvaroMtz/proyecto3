@@ -1,0 +1,37 @@
+.container1{
+    border-top: 1px solid black;
+}
+.img-rounded{
+    width: 100px;
+}
+.imagen{
+    margin: 15px;
+    margin-top: 60px;
+}
+
+.name{
+    margin: 15px;
+}
+.aportaciones{
+    margin: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.follower{
+    margin: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.following{
+    margin: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.profile{
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid black;
+}
+.header{
+    align-content: center;
+}

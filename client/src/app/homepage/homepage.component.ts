@@ -11,10 +11,14 @@ import { SessionService } from '../../services/session.service';
 })
 export class HomepageComponent implements OnInit {
 
+  lat: number = 40.393955;
+  lng: number = -3.818142;
+  
   publications:Array<any>
   user: any;
   likes: number;
   error:string;
+
   constructor(
     private router:Router,
     private route: ActivatedRoute,
@@ -27,6 +31,7 @@ export class HomepageComponent implements OnInit {
       this.pubService.getList().subscribe(list => {
         this.publications = list;
         this.user = this.authService.getUser();
+        console.log(this.publications)
       })
     });
   }

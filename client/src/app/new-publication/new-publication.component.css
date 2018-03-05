@@ -1,66 +1,43 @@
-  
-  .twitter {
-    display: flex;
-  }
-  
-  .twitter__bird {
-    margin-left: auto;
-    margin-right: auto
-  }
-  li{
-    list-style:none;
-  }
-  .twitter {
-    border: 1px solid red;
-    height: 60px;
-    align-items: center;
-    padding: 0 15px;
-    border: 1px solid rgba(238,238,238 ,1);
-    border-radius: 5px;
-    color: rgba(117,117,117 ,1);
-    box-shadow: 5px 10px 20px -20px rgba(85,172,238 ,1);
-  }
-  .twitter li {
-    cursor: pointer;
-  }
-  .twitter li:hover{
-    color: rgba(85,172,238 ,1);
-  }
-  .twitter__bird {
-    color: rgba(85,172,238 ,1);
-    font-size: 1.3em;
-  }
-  p{
-    color: rgba(85,172,238 ,1);
-    font-size: 1.3em;
-  }
-  .twitter li:not(:last-child):not(.twitter__bird) {
-    margin-right: 10px;
-  }
-  .twitter li  i:not(.fa-twitter):not(.fa-search):not(.fa-user-circle-o) {
-    margin-right: 3px;
-  }
-  .twitter li > button {
-    font-size: 0.8em;
-    border: 0;
-    background: rgba(85,172,238 ,1);
-    color: #fff;
-    border-radius: 100px;
-  }
+.licat{
+    display: inline;
+   }
+   .categories{
+     font-size: medium;
+   }
+   .general{
+     margin-left: 7%;
+     margin-right: 7%;
+   }
+   .categories2{
+     margin-top: 8%;
+   }
+   .smallprofile{
+    width: 40px;
+   }
+   .rigth{
+     margin-right: 1%;
+   }
 
   .editor{
       padding-top: 50px;
-    padding-left: 150px;
-    padding-right: 150px;
   }
   .fr-box.fr-basic .fr-element{
     min-height: 300px  !important;
 }
 
-.title{
+.create{
+    text-align: center;
+}
+.resume{
+    text-align: center;
 }
 
-.resume{
-    padding-top: 50px;
-    padding-left: 150px;
+.createform{
+    margin-top: 8%;
 }
+agm-map {
+    height: 300px;
+  }
+  .map{
+    margin-top: 7%;
+  }

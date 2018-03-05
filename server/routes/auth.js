@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
+const Follow = require('../models/Follow');
 const bcrypt = require('bcrypt');
 const debug = require('debug')("server:auth");
 const passport = require('passport')
@@ -28,6 +29,8 @@ router.post('/signup', (req, res, next) => {
       return theUser.save()
           .then(user => loginPromise(req,user))
           .then(user => {
+            const newFollow = new Follow({ userId: user._id });
+            newFollow.save()
             debug(`Registered user ${user._id}. Welcome ${user.username}`);
             res.status(200).json(req.user)
           }) 

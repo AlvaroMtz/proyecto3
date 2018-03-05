@@ -15,16 +15,16 @@ router.post('/', (req, res, next) => {
         .then(publi => res.status(200).json(publi))
     })
     .catch(err => res.status(500).json(err))
+  Follow.findOne({ userId: currentId })
+  .then((user) => {
+    let updatedUser = user;
+    updatedUser.followerID.push(userId)
+    Follow.findOneAndUpdate({ userId: currentId }, updatedUser, { $new: true })
+      .then(publi => res.status(200).json(publi))
+  })
+  .catch(err => res.status(500).json(err))
 });
 
-router.post('/new', (req, res, next) => {
-  const newFollow = new Follow({
-    userId: req.body.userId
-  });
-  newFollow.save()
-    .then(publi => res.status(200).json(publi))
-    .catch(err => res.status(500).json(err))
-});
 
 module.exports = router;
 

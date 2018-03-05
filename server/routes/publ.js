@@ -38,7 +38,9 @@ router.post('/', (req, res, next) => {
     const newPublication = new Publication({
         title: req.body.title,
         text: req.body.text,
-        userId: req.body.userId
+        userId: req.body.userId,
+        lat: req.body.lat,
+        lng: req.body.lng
     });
     newPublication.save()
         .then(publi=>res.status(200).json(publi))

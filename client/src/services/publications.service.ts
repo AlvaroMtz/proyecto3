@@ -6,6 +6,8 @@ interface Publication {
   title:string,
   text:string,
   userId: string,
+  lat:number,
+  lng: number,
 }
 
 @Injectable()

@@ -12,18 +12,20 @@ import { ProfileService } from '../../services/profile.service';
 })
 export class NewPublicationComponent implements OnInit {
   user: any;
-
   title: Array<any>;
   userId: any;
   text: Array<any>;
-
   publications: any;
+
+  
+
   constructor(
     private router:Router,
     private route: ActivatedRoute,
     private pubService: PublicationsService,
     private authService: SessionService,
     private profileService: ProfileService,
+    
   ) { }
   
   ngOnInit() {

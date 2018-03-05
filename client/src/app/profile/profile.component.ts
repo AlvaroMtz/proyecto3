@@ -56,6 +56,10 @@ export class ProfileComponent implements OnInit {
     this.followService.postid(userId, currentId)
       .subscribe(()=>{})
   }
+  newFollowModel(userId){
+    this.followService.postModel(userId)
+      .subscribe(()=>{})
+  }
 }
 
 
