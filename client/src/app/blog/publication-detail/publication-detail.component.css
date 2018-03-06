@@ -124,4 +124,25 @@
     animation: pulse 2s infinite;
   }
   
-  
+  .container_text{
+    width: 300px !important;
+  }
+  .licat{
+    display: inline;
+   }
+   .navbar-brand{
+     color: #333 !important;
+   }
+   .categories{
+     font-size: medium;
+   }
+   .general{
+     margin-left: 7%;
+     margin-right: 7%;
+   }
+   .smallprofile{
+    width: 40px;
+   }  
+   .rigth{
+     margin-right: 1%;
+   }

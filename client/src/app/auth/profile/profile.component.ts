@@ -30,7 +30,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.getUserDetails(params['id']);
-      this.getUserPublication(params['id']);
       this.pubService.getList().subscribe(list => {
         this.publication = list;
       }) 
@@ -48,18 +47,16 @@ export class ProfileComponent implements OnInit {
     this.pS.get(id)
       .subscribe((user) => {
         this.user = user;
+        console.log(this.user)
       });
   }
 
   followUser(userId, currentId){
     console.log(userId, currentId)
-    this.followService.postid(userId, currentId)
+    this.followService.postId(userId, currentId)
       .subscribe(()=>{})
   }
-  newFollowModel(userId){
-    this.followService.postModel(userId)
-      .subscribe(()=>{})
-  }
+
 }
 
 

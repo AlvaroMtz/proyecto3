@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { PublicationsService } from '../../../services/publications.service';
 import { SessionService } from '../../../services/session.service';
 import { ProfileService } from '../../../services/profile.service';
+import { LikeService } from '../../../services/like.service';
+
 
 @Component({
   selector: 'app-publication-detail',
@@ -16,12 +18,14 @@ export class PublicationDetailComponent implements OnInit {
 
   publication:any;
   user:any;
+  likes: number;
 
   constructor(
     private router:Router,
     private route: ActivatedRoute,
     private pubService: PublicationsService,
     private authService: SessionService,
+    private likeSevice:LikeService,
   ) { }
 
   ngOnInit() {
@@ -30,17 +34,13 @@ export class PublicationDetailComponent implements OnInit {
       this.user = this.authService.getUser();
   
     });
-    var pageContent = document.getElementById("content"),
-	pagecopy = pageContent.cloneNode(true),
-	blurryContent = document.getElementById("blurryscroll");
-	blurryContent.appendChild(pagecopy);
-	window.onscroll = function() { blurryContent.scrollTop = window.pageYOffset; }
   }
 
   getPublication(id) {
     this.pubService.getPublication(id)
       .subscribe((publication) => {
-        this.publication = publication;        
+        this.publication = publication; 
+        console.log(publication)       
       });
   }
 
@@ -49,5 +49,17 @@ export class PublicationDetailComponent implements OnInit {
       this.router.navigate(['/']);
     });
   }
+  getPostLikes(id){
+    this.likeSevice.get(id).subscribe(a => {
+      this.likes = a.length;
+    })
+  }
+
+  addLike(){
+    this.likeSevice.add(this.publication._id).subscribe( () => {
+      this.getPostLikes(this.publication._id)
+    })
+  }
+  
 
 }

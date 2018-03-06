@@ -39,6 +39,7 @@ router.post('/', (req, res, next) => {
         title: req.body.title,
         text: req.body.text,
         userId: req.body.userId,
+        resume: req.body.resume,
         lat: req.body.lat,
         lng: req.body.lng
     });

@@ -25,6 +25,7 @@
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.6",
     "@tinymce/tinymce-angular": "^1.0.5",
+    "@types/google-maps": "^3.2.0",
     "angular-froala-wysiwyg": "^2.7.5",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",

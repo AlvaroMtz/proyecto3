@@ -9,6 +9,9 @@ import { FormControl } from '@angular/forms';
 import { ElementRef } from '@angular/core';
 import { NgZone } from '@angular/core';
 import { viewParentEl } from '@angular/core/src/view/util';
+import {} from '@types/googlemaps';
+declare var google: any;
+
 
 @Component({
   selector: 'app-new-publication',
@@ -16,13 +19,15 @@ import { viewParentEl } from '@angular/core/src/view/util';
   styleUrls: ['./new-publication.component.css']
 })
 export class NewPublicationComponent implements OnInit {
+  private map: any;
+  private google: any;
   user: any;
-  title: Array<any>;
+  title: string;
   userId: any;
-  text: Array<any>;
+  text: string;
   publications: any;
-  lat: number;
-  lng: number;
+  resume: string;
+
 
   public latitude: number;
   public longitude: number;
@@ -48,6 +53,7 @@ export class NewPublicationComponent implements OnInit {
       this.pubService.getList().subscribe(list => {
         this.publications = list;
         this.user = this.authService.getUser();
+        console.log(this.user)
       })
     });
     //set google maps defaults
@@ -84,8 +90,10 @@ export class NewPublicationComponent implements OnInit {
       });
     });
   };
-  newPub(title, text, userId, lat, lng){
-      this.pubService.newPub(title, text, userId, lat, lng)
+
+  newPub(){
+    console.log(this.title, this.text, this.resume, this.user._id, this.latitude, this.longitude)
+      this.pubService.newPub(this.title, this.text, this.user._id, this.resume,  this.latitude, this.longitude)
       .subscribe()
     }
     private setCurrentPosition() {

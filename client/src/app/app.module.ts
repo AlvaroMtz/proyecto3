@@ -22,6 +22,8 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import { PagerService } from '../services/pageservice.service';
 import { FollowService } from '../services/follow.service';
 import { AgmCoreModule } from '@agm/core';
+import { LikeService } from '../services/like.service';
+declare var google: any;
 
 
 @NgModule({
@@ -52,7 +54,7 @@ import { AgmCoreModule } from '@agm/core';
     }),
     ReactiveFormsModule,
   ],
-  providers: [SessionService, ProfileService, PublicationsService, PagerService, FollowService],
+  providers: [SessionService, ProfileService, PublicationsService, PagerService, FollowService, LikeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

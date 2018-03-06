@@ -1,3 +1,4 @@
+<div *ngIf="user">
 <nav class="navbar navbar-trans navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -49,6 +50,7 @@
         </div>
     </div>
 </nav>
+</div>
 
 <div class="map">
     <agm-map [latitude]="lat" [longitude]="lng" [zoom]="3">
@@ -86,13 +88,14 @@
                         </div>
                         <div class="post-card__content">
                             <div class="post-card__info">
-                                <h1>{{p.title}}</h1>
+                                <h1>{{p.title}} written by 
+                                 </h1>
                                 <h5>184&nbsp;
                                     <span>Reviews</span>
                                 </h5>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas doloribus dolorum ratione
                                     optio. Tenetur id fugiat totam, ducimus velit? Officia mollitia reiciendis ipsum!</p>
-                                <a href="#">Read more</a>
+                                <a [routerLink]="['/post', p._id]">Read more</a>
                             </div>
 
                         </div>
@@ -102,7 +105,7 @@
                                     <li>
                                         <a href="#">
                                             <i class="ion ion-chatbox"></i>
-                                            <span>736</span>
+                                            <span>560</span>
                                         </a>
                                     </li>
                                     <li>

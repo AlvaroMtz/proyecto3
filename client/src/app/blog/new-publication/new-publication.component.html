@@ -16,14 +16,14 @@
                     <li class="dropdown">
                         <!-- Intentar poneer la imagen de perfil -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <img  class="smallprofile" src="https://image.freepik.com/iconos-gratis/perfil-macho-sombra-de-usuario_318-40244.jpg" alt="">
+                            <img class="smallprofile" src="https://image.freepik.com/iconos-gratis/perfil-macho-sombra-de-usuario_318-40244.jpg" alt="">
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                                <li>
-                                        <a [routerLink]="['/signup']">¿No estás registrado?</a>
-                                    </li>
-                                    <li role="separator" class="divider"></li>
+                            <li>
+                                <a [routerLink]="['/signup']">¿No estás registrado?</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
                             <li>
                                 <a [routerLink]="['/new']">Nueva historia</a>
                             </li>
@@ -45,7 +45,7 @@
             </div>
         </div>
     </nav>
-  
+
     <div class="container">
         <div class="row">
             <div class="col-md-2"></div>
@@ -56,46 +56,36 @@
     <div class="container map">
         <h3>Escoge un lugar</h3>
         <div class="form-group">
-          <input placeholder="search for location" autocorrect="on" autocapitalize="on" spellcheck="on" type="text" class="form-control" #search [formControl]="searchControl">
+            <input placeholder="search for location" autocorrect="on" autocapitalize="on" spellcheck="on" type="text" class="form-control"
+                #search [formControl]="searchControl">
         </div>
         <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
-          <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+            <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
         </agm-map>
-      </div>
+    </div>
     <div class="container create">
         <div class="">
             <div class="col-md-2"></div>
             <div class="col-md-8 createform">
                 <form>
                     <label> Título </label>
-                    <br>
-                    <input class="title" type="title" [(ngModel)]="title" name="title" />
-                    <br>
-                    <div class="input-group input-group-lg resume">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">Resumen</span>
-                        </div>
-                        <textarea class="form-control" aria-label="With textarea"></textarea>
-                      </div>
-                    <br>
-                    <div class="editor" >
-                    <div [froalaEditor] type="text" [(ngModel)]="text" name="text" >Hello Mundo!</div>
-                  </div>
-                    <br>
-                    <input type="hidden" [(ngModel)]="this.user._id" name="this.user._id" >
-                    <input type="hidden" [(ngModel)]="this.user.username" name="this.user.username">
-                    <input id="lat" [(ngModel)]="latitude" name="lat" placeholder="Latitude" style="visibility:hidden">
-                    <input id="lon" [(ngModel)]="longitude" name="log" placeholder="Longitude" style="visibility:hidden">
-                    <br>
-                    <a  [routerLink]="['/home']">
-                      <button  (click)="newPub(title, text, this.user._id, this.user.username)"> Publicar</button>
+                    <input class="title" type="text" [(ngModel)]="title" name="title" required/>
+                    <label> Resumen </label>
+                    <input class="resume" type="text" [(ngModel)]="resume" name="resume" required/>
+                    <div class="editor">
+                        <div [froalaEditor] type="text" [(ngModel)]="text" name="text" required>Hello Mundo!</div>
+                    </div>
+                    <input type="hidden" id="userId" [(ngModel)]="this.user._id" name="userId" required>
+                    <input  id="lat" [(ngModel)]="latitude" name="lat" style="visibility:hidden" required>
+                    <input  id="lng" [(ngModel)]="longitude" name="lng"  style="visibility:hidden" required>
+                    <a href="/">
+                    <button ype="submit" name="action" (click)="newPub(title, text, userId, resume,  latitude, longitude)"> Publicar</button>
                     </a>
-                    </form>
+                </form>
             </div>
             <div class="col-md-2"></div>
         </div>
     </div>
 
-    
-  </div>
-  
+
+</div>

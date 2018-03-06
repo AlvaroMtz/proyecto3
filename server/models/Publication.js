@@ -8,7 +8,6 @@ const publicationSchema = new Schema({
   resume: String,
   lat: Number,
   lng: Number,
-  creatorName: String,
   //image here
   text: String,
 }, {

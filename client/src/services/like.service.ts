@@ -2,20 +2,18 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-interface Publication {
-  userId:string,
-  currentId:string,
-}
-
 @Injectable()
-export class FollowService {
+export class LikeService {
   BASE_URL: string = 'http://localhost:3000';
   constructor(private http: Http) {}
-
-  private user:any;
+    
+  add(post_id) {
+    return this.http.post(`${this.BASE_URL}/api/likes`,{rel:post_id})
+      .map((res) => res.json());
+  }
   
-  postId(userId, currentId){
-    return this.http.post(`${this.BASE_URL}/api/follow/`, {userId, currentId} )
+  get(id) {
+    return this.http.get(`${this.BASE_URL}/api/likes?rel=${id}`)
       .map((res) => res.json());
   }
 }

@@ -7,6 +7,7 @@ const Follow = require('../models/Follow')
 router.post('/', (req, res, next) => {
   let currentId = req.body.currentId
   let userId = req.body.userId
+  console.log(this.userId)
   Follow.findOne({ userId: userId })
     .then((user) => {
       let updatedUser = user;

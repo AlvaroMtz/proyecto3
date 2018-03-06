@@ -15,5 +15,5 @@ export const routes: Routes = [
     { path: 'edit/:id', component: EditFormComponent},
     { path: 'new', component: NewPublicationComponent},
     { path: 'post/:id', component: PublicationDetailComponent},
-    { path: '**', redirectTo: '' }   
+    // { path: '**', redirectTo: '' }   
 ];

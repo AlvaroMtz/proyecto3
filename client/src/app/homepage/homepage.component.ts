@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PublicationsService } from '../../services/publications.service';
 import { Router } from '@angular/router';
 import { SessionService } from '../../services/session.service';
+import { LikeService } from '../../services/like.service';
 
 @Component({
   selector: 'app-homepage',
@@ -24,6 +25,7 @@ export class HomepageComponent implements OnInit {
     private route: ActivatedRoute,
     private pubService: PublicationsService,
     private authService: SessionService,
+    private likeService: LikeService
   ) { }
 
   ngOnInit() {
@@ -31,10 +33,16 @@ export class HomepageComponent implements OnInit {
       this.pubService.getList().subscribe(list => {
         this.publications = list;
         this.user = this.authService.getUser();
-        console.log(this.user)
       })
     });
   }
+
+  getPostLikes(id){
+    this.likeService.get(id).subscribe(a => {
+      this.likes = a.length;
+    })
+  }
+
   logout(){
     this.authService.logout()
     .catch(e => this.error = e)
