@@ -14,6 +14,10 @@ export class SignupFormComponent implements OnInit {
 
   username:string;
   password:string;
+  email:string;
+  name:string;
+  surname:string;
+
   error:string;
   constructor(
     public session:SessionService,
@@ -25,16 +29,13 @@ export class SignupFormComponent implements OnInit {
   ngOnInit() {
   }
 
-postModel(userId){
-  this.followService.postModel(userId)
-  .subscribe();
-
-}
-
   signup(){
-    this.session.signup(this.username,this.password)
+    console.log("componente")
+    console.log(this.username,this.password,this.email,this.name,this.surname)
+    this.session.signup(this.username,this.password, this.email, this.name, this.surname)
     .catch(e => this.error = e)
     .subscribe( m => {
+      console.log("salgo del componente")
       this.router.navigate(['home']);
     });
   }

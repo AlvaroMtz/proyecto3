@@ -1,52 +1,3 @@
-
-<nav class="navbar navbar-trans navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-                aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" [routerLink]="['/home']">STORIES</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right rigth">
-                <li class="dropdown">
-                    <!-- Intentar poneer la imagen de perfil -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            <img  class="smallprofile" src="https://image.freepik.com/iconos-gratis/perfil-macho-sombra-de-usuario_318-40244.jpg" alt="">
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                            <li>
-                                    <a [routerLink]="['/signup']">¿No estás registrado?</a>
-                                </li>
-                                <li role="separator" class="divider"></li>
-                        <li>
-                            <a [routerLink]="['/new']">Nueva historia</a>
-                        </li>
-                        <li role="separator" class="divider"></li>
-                        <li>
-                            <a [routerLink]="['/profile', user._id]">Mi perfil</a>
-                        </li>
-                        <li role="separator" class="divider"></li>
-                        <li>
-                            <a href="#">¿A quién sigues?</a>
-                        </li>
-                        <li role="separator" class="divider"></li>
-                        <li>
-                            <a href="#">LOGOUT</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-
 <div class="login-page">
     <div class="form">
       <form class="login-form">
@@ -55,34 +6,10 @@
         <input type="username" [(ngModel)]="username" name="username" placeholder="Nick"/>
         <input type="email" [(ngModel)]="email" name="email" placeholder="Tu mejor email"/>
         <input type="password" [(ngModel)]="password" name="password" placeholder="Pasword"/>
-        <button>Signup</button>
+        <button (click)="signup()" ype="submit" name="action" >Signup</button>
         <p class="message">Yet registered? <a href="/login">Go to Login</a></p>
       </form>
     </div>
   </div>
-
-
-<!-- <div *ngIf="!session.getUser()">
-    <form>
-      <label> Username </label>
-      <input type="text" [(ngModel)]="username" name="username"/>
-      <br>
-      <label> Password </label>
-      <input type="password" [(ngModel)]="password" name="password"/>
-      <div>
-        <button (click)="signup()" > Signup </button>
-      </div>
-      <div>
-        ¿Ya estás registrado? 
-        <a [routerLink]="['/login']"> Login </a>
-      </div>
-    </form>
-    <p *ngIf="error" class="error"> {{ error }} </p>
-  </div>
-  
-  <div *ngIf="session.getUser()">
-    <button (click)="logout()  "> Logout </button>
-  </div> -->
-
 
    

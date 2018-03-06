@@ -31,7 +31,7 @@ export class HomepageComponent implements OnInit {
       this.pubService.getList().subscribe(list => {
         this.publications = list;
         this.user = this.authService.getUser();
-        console.log(this.publications)
+        console.log(this.user)
       })
     });
   }
