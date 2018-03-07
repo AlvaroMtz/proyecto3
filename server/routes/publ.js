@@ -65,26 +65,28 @@ router.put('/:id', (req, res, next) => {
 //Get comments
 
 router.get('/:id/coment', (req, res, next) => {
+    console.log(req.params.id)
     const publications = req.params.id;
     Coment.find({publication_id :req.params.id}).populate('creatorid')
-        .then(publications => {
-            res.json(publications)
+        .then(coments => {
+            res.json(coments)
         })
 });
 
 //Post comments
 router.post('/:id/coment', (req, res, next) => {
-    const publication_id = req.params.id
+    console.log(req.body.description)
     const newComent = new Coment({
         description: req.body.description,
-        publication_id: req.body.publication_id,
-        creatorid: req.body.creatorid
+        creatorid: req.body.creatorId,
+        publication_id: req.params.id,
     });
-    newComent.save((err) => {
+    newComent.save((err, com) => {
+        console.log(com)
         if (err) {
             res.status(500).json(err)
         } else {
-            return res.status(200).json(req.publications);
+            return res.status(200).json(com);
         }
     });
 });

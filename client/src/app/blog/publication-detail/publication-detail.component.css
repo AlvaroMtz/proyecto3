@@ -147,6 +147,27 @@
      margin-right: 1%;
    }
 
-   .comment_container{
-     margin-top: 20px;
+   .center{
+    font-size: medium !important;
+   }
+
+   .comentario{
+     margin-top: 50%;
+
+   }
+   .general{
+    display: inline-block;
+   }
+   .coment{
+    position: fixed;
+   }
+   .like{
+    position: fixed;
+   }
+   like{
+     align-content: center;
+     margin: 2px;
+   }
+   .general{
+     margin-top: 12%;
    }

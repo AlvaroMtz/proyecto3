@@ -20,6 +20,8 @@ export class PublicationDetailComponent implements OnInit {
   user:any;
   likes: number;
   coments:any;
+  description: any;
+  
 
   constructor(
     private router:Router,
@@ -66,11 +68,17 @@ export class PublicationDetailComponent implements OnInit {
     })
   }
 
-  postComent(){
-    this.pubService.postComent(this.publication._id).subscribe( m => {
-      this.router.navigate(['/']);
+  getComent(id){
+    console.log(this.publication._id)
+    this.pubService.getComent(this.publication._id).subscribe((coments) =>{
+      this.coments = coments
+    })
+  }
+
+  postComent(comment){
+    this.pubService.postComent(this.publication._id, comment, this.user._id).subscribe( () => {
+      this.getComent(this.publication._id)
     });
   }
   
-
 }

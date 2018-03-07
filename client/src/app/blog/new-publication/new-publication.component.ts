@@ -92,7 +92,6 @@ export class NewPublicationComponent implements OnInit {
   };
 
   newPub(){
-    console.log(this.title, this.text, this.resume, this.user._id, this.latitude, this.longitude)
       this.pubService.newPub(this.title, this.text, this.user._id, this.resume,  this.latitude, this.longitude)
       .subscribe()
     }

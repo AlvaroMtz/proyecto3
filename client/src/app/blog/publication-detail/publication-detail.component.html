@@ -1,99 +1,112 @@
 <div *ngIf="user">
-        <nav class="navbar navbar-trans navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-                        aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" [routerLink]="['/home']">STORIES</a>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right rigth">
-                        <li class="dropdown">
-                            <!-- Intentar poneer la imagen de perfil -->
-        
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <img class="smallprofile" src="https://image.freepik.com/iconos-gratis/perfil-macho-sombra-de-usuario_318-40244.jpg" alt="">
-                                <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-        
-                                    <li>
-                                        <a [routerLink]="['signup']">
-                                            ¿No estás registrado?
-                                        </a>
-        
-                                    </li>
-                                    <li role="separator" class="divider"></li>
-                                    <li>
-                                        <a [routerLink]="['/new']">Nueva historia</a>
-                                    </li>
-                                    <li role="separator" class="divider"></li>
-                                    <li>
-                                        <a [routerLink]="['/profile', user._id]">Mi perfil</a>
-                                    </li>
-                                    <li role="separator" class="divider"></li>
-                                    <li>
-                                        <a href="#">¿A quién sigues?</a>
-                                    </li>
-                                    <li role="separator" class="divider"></li>
-                                    <li>
-                                        <button (click)="logout()"> Logout </button>
-                                    </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+    <nav class="navbar navbar-trans navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" [routerLink]="['/home']">STORIES</a>
             </div>
-        </nav>
-    </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right rigth">
+                    <li class="dropdown">
+                        <!-- Intentar poneer la imagen de perfil -->
 
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <img class="smallprofile" src="https://image.freepik.com/iconos-gratis/perfil-macho-sombra-de-usuario_318-40244.jpg" alt="">
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
 
+                            <li>
+                                <a [routerLink]="['signup']">
+                                    ¿No estás registrado?
+                                </a>
+
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a [routerLink]="['/new']">Nueva historia</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a [routerLink]="['/profile', user._id]">Mi perfil</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a href="#">¿A quién sigues?</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <button (click)="logout()"> Logout </button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
 
 <div *ngIf=publication>
-    <div class="container">
+    <div class="container general">
         <div class="row">
             <div class="col-md-2">
-            
-                
-                        
+                    <div class="container">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <div class="like">
+                                        <button type="button" class="btn btn-info" (click)="addLike()">
+                                            <i class="ion-thumbsup" ></i>
+                                            LIKE</button>
+                                        <h3>{{likes}} </h3>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                        <!-- <button (click)="deletePublication()">
+                                                Delete
+                                            </button> -->
+                                </div>
+                            </div>
+                        </div>
             </div>
-
             <div class="col-md-5">
-                <a [routerLink]="['/home']"> Volver a Home </a>
-
                 <h2> {{publication.title }}</h2>
                 <div class="container_text">
-                    <div [froalaView]="publication.text"></div>
+                    <div class="center" [froalaView]="publication.text"></div>
                 </div>
                 <!-- SOLO EL CREADOR!!!! -->
                 <a [routerLink]="['/profile', publication.userId._id]">
                     <p>{{publication.userId.username}}</p>
                 </a>
-                <h1>Likes {{likes}} </h1>
-                <button (click)="addLike()">LIKE</button>
-                <button (click)="deletePublication()">
-                        Delete
-                    </button>
+                
             </div>
-            <div class="col-md-2"></div>
+            <div class="col-md-2">
+                    <div class="container comentario">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div *ngFor="let c of coments">
+                                        <!-- <h4>{{c.creatorid.username}}</h4> -->
+                                        <p>{{c.description}}</p>
+                                        escrito por {{c.creatorid.username}}
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <form class="coment">
+                        
+                                        <label> Comentario </label>
+                                        <input class="resume" type="text" [(ngModel)]="description" name="description" required/>
+                                        <button ype="submit" name="action" (click)="postComent(description)"> Publicar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+            </div>
         </div>
     </div>
 </div>
-<div *ngFor="let c of coments">
-    <h4>{{c.creatorid.username}}</h4>
-    <p>{{c.description}}</p>
-</div>
 
-<form>
-        <label> Título </label>
-        <input class="title" type="text" [(ngModel)]="title" name="title" required/>
-        <label> Resumen </label>
-        <input type="hidden" id="userId" [(ngModel)]="this.user._id" name="userId" required>
-        <input class="resume" type="text" [(ngModel)]="resume" name="resume" required/>
-        <button ype="submit" name="action" (click)="newPub(title, text, userId, resume,  latitude, longitude)"> Publicar</button>
-    </form>

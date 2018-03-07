@@ -11,6 +11,12 @@ interface Publication {
   lng: number,
 }
 
+interface Coment {
+  description: string,
+  creatorid: string,
+  publication_id: string,
+}
+
 @Injectable()
 export class PublicationsService {
   BASE_URL: string = 'http://localhost:3000';
@@ -45,12 +51,12 @@ export class PublicationsService {
       .map((res) => res.json());
   }
   getComent(id) {
-    return this.http.get(`${this.BASE_URL}/api/publications//:id/coment${id}`)
+    return this.http.get(`${this.BASE_URL}/api/publications/${id}/coment`)
       .map((res) => res.json());
   }
 
-  postComent(id) {
-    return this.http.get(`${this.BASE_URL}/api/publications//:id/coment${id}`)
+  postComent(id: string, description: string, creatorId: string) {
+    return this.http.post(`${this.BASE_URL}/api/publications/${id}/coment`, {description, creatorId} )
       .map((res) => res.json());
   }
 }

@@ -78,9 +78,7 @@
                     <input type="hidden" id="userId" [(ngModel)]="this.user._id" name="userId" required>
                     <input  id="lat" [(ngModel)]="latitude" name="lat" style="visibility:hidden" required>
                     <input  id="lng" [(ngModel)]="longitude" name="lng"  style="visibility:hidden" required>
-                    <a href="/">
                     <button ype="submit" name="action" (click)="newPub(title, text, userId, resume,  latitude, longitude)"> Publicar</button>
-                    </a>
                 </form>
             </div>
             <div class="col-md-2"></div>
