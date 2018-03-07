@@ -84,3 +84,16 @@
         </div>
     </div>
 </div>
+<div *ngFor="let c of coments">
+    <h4>{{c.creatorid.username}}</h4>
+    <p>{{c.description}}</p>
+</div>
+
+<form>
+        <label> Título </label>
+        <input class="title" type="text" [(ngModel)]="title" name="title" required/>
+        <label> Resumen </label>
+        <input type="hidden" id="userId" [(ngModel)]="this.user._id" name="userId" required>
+        <input class="resume" type="text" [(ngModel)]="resume" name="resume" required/>
+        <button ype="submit" name="action" (click)="newPub(title, text, userId, resume,  latitude, longitude)"> Publicar</button>
+    </form>

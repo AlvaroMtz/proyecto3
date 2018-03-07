@@ -59,6 +59,7 @@
         <div class="follower">
           <div *ngFor="let f of follow">
             <div *ngIf="user._id == f.userId">
+              <i class="ion-person-stalker"></i>
               <h5>{{f.followerID.length}}</h5>
             </div>
           </div>
@@ -142,6 +143,7 @@
           </div>
           <div *ngIf="this.user._id != this.sessionService.getUser()._id">
             <button (click)="followUser(user._id, this.sessionService.getUser()._id )">
+              <i class="ion-person-add"></i>
               Follow
             </button>
           </div>

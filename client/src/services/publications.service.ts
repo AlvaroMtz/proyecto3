@@ -3,19 +3,19 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 interface Publication {
-  title:string,
-  text:string,
+  title: string,
+  text: string,
   userId: string,
   resume: string,
-  lat:number,
+  lat: number,
   lng: number,
 }
 
 @Injectable()
 export class PublicationsService {
   BASE_URL: string = 'http://localhost:3000';
-  constructor(private http: Http) {}
-  private publication:Publication;
+  constructor(private http: Http) { }
+  private publication: Publication;
   getList() {
     return this.http.get(`${this.BASE_URL}/api/publications`)
       .map((res) => res.json());
@@ -30,19 +30,27 @@ export class PublicationsService {
       .map((res) => res.json());
   }
 
-
-  newPub(title:string, text:string, userId:string, resume:string, lat:number, lng:number){
-    return this.http.post(`${this.BASE_URL}/api/publications`, {title,text, resume, userId, lat, lng})
-    .map((res) => res.json());
+  newPub(title: string, text: string, userId: string, resume: string, lat: number, lng: number) {
+    return this.http.post(`${this.BASE_URL}/api/publications`, { title, text, resume, userId, lat, lng })
+      .map((res) => res.json());
   }
-  
+
   edit(publications) {
     return this.http.put(`${this.BASE_URL}/api/publications/${publications.id}`, publications)
       .map((res) => res.json());
   }
-  
+
   remove(id) {
     return this.http.get(`${this.BASE_URL}/api/publications/delete/${id}`)
+      .map((res) => res.json());
+  }
+  getComent(id) {
+    return this.http.get(`${this.BASE_URL}/api/publications//:id/coment${id}`)
+      .map((res) => res.json());
+  }
+
+  postComent(id) {
+    return this.http.get(`${this.BASE_URL}/api/publications//:id/coment${id}`)
       .map((res) => res.json());
   }
 }

@@ -19,6 +19,7 @@ export class PublicationDetailComponent implements OnInit {
   publication:any;
   user:any;
   likes: number;
+  coments:any;
 
   constructor(
     private router:Router,
@@ -31,17 +32,20 @@ export class PublicationDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.getPublication(params['id']);
-      
+      this.likeSevice.get(params['id']).subscribe(a => {
+        this.likes = a.length;
+        this.user = this.authService.getUser();
+      })
+      this.pubService.getComent(params['id']).subscribe(a =>{
+        this.coments = a;
+      })
     });
-    this.user = this.authService.getUser();
-    
   }
 
   getPublication(id) {
     this.pubService.getPublication(id)
       .subscribe((publication) => {
-        this.publication = publication; 
-        console.log(publication)       
+        this.publication = publication;    
       });
   }
 
@@ -60,6 +64,12 @@ export class PublicationDetailComponent implements OnInit {
     this.likeSevice.add(this.publication._id).subscribe( () => {
       this.getPostLikes(this.publication._id)
     })
+  }
+
+  postComent(){
+    this.pubService.postComent(this.publication._id).subscribe( m => {
+      this.router.navigate(['/']);
+    });
   }
   
 

@@ -63,12 +63,13 @@ router.put('/:id', (req, res, next) => {
 });
 
 //Get comments
+
 router.get('/:id/coment', (req, res, next) => {
-    Publication.findById(req.params.id, (err, publication) => {
-        if (err) { return next(err) }
-        if (!publication) { return next(new Error("404")) }
-        return res.render('coments/new', { publication })
-    });
+    const publications = req.params.id;
+    Coment.find({publication_id :req.params.id}).populate('creatorid')
+        .then(publications => {
+            res.json(publications)
+        })
 });
 
 //Post comments
@@ -87,6 +88,7 @@ router.post('/:id/coment', (req, res, next) => {
         }
     });
 });
+
 
 // router.delete('/edit/:id', function (req, res, next) {
 
