@@ -31,9 +31,10 @@ export class PublicationDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.getPublication(params['id']);
-      this.user = this.authService.getUser();
-  
+      
     });
+    this.user = this.authService.getUser();
+    
   }
 
   getPublication(id) {

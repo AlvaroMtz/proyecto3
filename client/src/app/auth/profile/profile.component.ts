@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
   user:any = {
     _id: ""
   }
+  follow:any;
   publication:any;
   userId:any;
   currentId:any;
@@ -33,6 +34,10 @@ export class ProfileComponent implements OnInit {
       this.pubService.getList().subscribe(list => {
         this.publication = list;
       }) 
+      this.followService.getFollow().subscribe(follow => {
+        this.follow = follow;
+        console.log(this.follow)
+      })
     });
   }
   

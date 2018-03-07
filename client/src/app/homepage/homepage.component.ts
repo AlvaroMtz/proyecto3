@@ -4,6 +4,7 @@ import { PublicationsService } from '../../services/publications.service';
 import { Router } from '@angular/router';
 import { SessionService } from '../../services/session.service';
 import { LikeService } from '../../services/like.service';
+import { FollowService } from '../../services/follow.service';
 
 @Component({
   selector: 'app-homepage',
@@ -15,17 +16,19 @@ export class HomepageComponent implements OnInit {
   lat: number = 40.393955;
   lng: number = -3.818142;
   
-  publications:Array<any>
+  follow: any;
+  publications:Array<any>;
   user: any;
   likes: number;
   error:string;
-
+  
   constructor(
     private router:Router,
     private route: ActivatedRoute,
     private pubService: PublicationsService,
     private authService: SessionService,
-    private likeService: LikeService
+    private likeService: LikeService,
+    private followService: FollowService
   ) { }
 
   ngOnInit() {
@@ -34,6 +37,11 @@ export class HomepageComponent implements OnInit {
         this.publications = list;
         this.user = this.authService.getUser();
       })
+      this.followService.getFollow().subscribe(follow => {
+        this.follow = follow;
+        console.log(this.follow)
+      })
+
     });
   }
 

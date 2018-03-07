@@ -20,7 +20,6 @@ export class PublicationsService {
     return this.http.get(`${this.BASE_URL}/api/publications`)
       .map((res) => res.json());
   }
-  
   getPublication(id) {
     return this.http.get(`${this.BASE_URL}/api/publications/publication/${id}`)
       .map((res) => res.json());

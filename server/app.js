@@ -56,7 +56,14 @@ app.use(session({
   store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
+
 require('./passport')(app)
+
+// app.use((req, res, next) => {
+//   res.locals.user = req.user;
+//   console.log("---------------------->" + req.user._id)
+//   next();
+// })
 
 app.use('/api/auth', auth);
 app.use('/api/publications/', publ)

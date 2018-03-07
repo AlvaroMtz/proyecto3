@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const Publication = require('../models/Publication')
+const Coment = require('../models/Coment')
 
 //Get all
 router.get('/', (req, res, next) => {
@@ -13,17 +14,18 @@ router.get('/', (req, res, next) => {
         })
 });
 
-//Get One FALTAN POR IMPLEMENTAR LOS COMENTARIOS
+//Get One
 router.get('/publication/:id', (req, res, next) => {
     const publications = req.params.id;
     Publication.findById(req.params.id).populate('userId')
         .then(publications => {
-            // Coment.find({ "publication_id": publication })
-            //     .populate("userId")
-            //     .then(c => {
+            Coment.find({ "publication_id": publications })
+                .populate("userId")
+                .then(c => {
                     res.status(200).json(publications)
-                // })
-        })
+                })
+            })
+        .catch(err=>res.status(500).json(err))
 });
 router.get('/user-publication/:id', (req, res, next) => {
     const publications = req.params.id;

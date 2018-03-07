@@ -60,6 +60,16 @@
     </agm-map>
 </div>
 
+<!-- Muestra los following, utilizar en el perfil para mostrar los followers y following -->
+<div *ngFor="let f of follow">
+    <div *ngIf="user._id == f.userId">
+        <div *ngFor="let following of f.followingID">
+        <h1>{{following.username}}</h1>
+     </div>
+    </div>
+</div>
+
+
 <div class="container_left">
     <h2 class="left_title">Historias populares</h2>
     <div *ngFor="let p of publications; let i = index">
@@ -88,7 +98,7 @@
                         </div>
                         <div class="post-card__content">
                             <div class="post-card__info">
-                                <h1>{{p.title}} written by 
+                                <h1>{{p.title}} written by <a [routerLink]="['/profile', p.userId._id]" >{{p.userId.username}}</a>
                                  </h1>
                                 <h5>184&nbsp;
                                     <span>Reviews</span>
@@ -122,4 +132,7 @@
             </div>
         </div>
     </div>
+</div>
+<div>
+    
 </div>

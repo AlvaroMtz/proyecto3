@@ -50,16 +50,16 @@
                 </div>
             </div>
         </nav>
-        </div>
+    </div>
 
 
 
-<div *ngIf=this.publication>
+<div *ngIf=publication>
     <div class="container">
         <div class="row">
             <div class="col-md-2">
-                    <h1>Likes {{likes}} </h1>
-                        <a (click)="addLike()">+1</a>
+            
+                
                         
             </div>
 
@@ -74,6 +74,8 @@
                 <a [routerLink]="['/profile', publication.userId._id]">
                     <p>{{publication.userId.username}}</p>
                 </a>
+                <h1>Likes {{likes}} </h1>
+                <button (click)="addLike()">LIKE</button>
                 <button (click)="deletePublication()">
                         Delete
                     </button>
