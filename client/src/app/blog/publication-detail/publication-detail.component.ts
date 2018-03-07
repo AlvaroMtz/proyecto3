@@ -13,16 +13,13 @@ import { LikeService } from '../../../services/like.service';
   styleUrls: ['./publication-detail.component.css']
 })
 export class PublicationDetailComponent implements OnInit {
-
   
-
   publication:any;
   user:any;
   likes: number;
   coments:any;
   description: any;
   
-
   constructor(
     private router:Router,
     private route: ActivatedRoute,

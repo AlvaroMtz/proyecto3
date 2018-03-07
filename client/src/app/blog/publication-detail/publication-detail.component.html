@@ -51,28 +51,27 @@
         </div>
     </nav>
 </div>
-
+<div class="map">
+    <agm-map [latitude]="publication.lat" [longitude]="publication.lng" [zoom]="15">
+        <agm-marker [latitude]="publication.lat" [longitude]="publication.lng"></agm-marker>
+    </agm-map>
+</div>
 <div *ngIf=publication>
     <div class="container general">
         <div class="row">
             <div class="col-md-2">
-                    <div class="container">
-                            <div class="row">
-                                <div class="col-md-10">
-                                    <div class="like">
-                                        <button type="button" class="btn btn-info" (click)="addLike()">
-                                            <i class="ion-thumbsup" ></i>
-                                            LIKE</button>
-                                        <h3>{{likes}} </h3>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                        <!-- <button (click)="deletePublication()">
+                <div class="like">
+                    <button type="button" class="btn btn-info" (click)="addLike()">
+                        <i class="ion-thumbsup"></i>
+                        LIKE</button>
+                    <h3>{{likes}} </h3>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <!-- <button (click)="deletePublication()">
                                                 Delete
                                             </button> -->
-                                </div>
-                            </div>
-                        </div>
+
             </div>
             <div class="col-md-5">
                 <h2> {{publication.title }}</h2>
@@ -83,30 +82,19 @@
                 <a [routerLink]="['/profile', publication.userId._id]">
                     <p>{{publication.userId.username}}</p>
                 </a>
-                
+
             </div>
-            <div class="col-md-2">
-                    <div class="container comentario">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div *ngFor="let c of coments">
-                                        <!-- <h4>{{c.creatorid.username}}</h4> -->
-                                        <p>{{c.description}}</p>
-                                        escrito por {{c.creatorid.username}}
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <form class="coment">
-                        
-                                        <label> Comentario </label>
-                                        <input class="resume" type="text" [(ngModel)]="description" name="description" required/>
-                                        <button ype="submit" name="action" (click)="postComent(description)"> Publicar</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+            <div class="container comentario">
+                    <div *ngFor="let c of coments">
+                        <p>{{c.description}}</p>
+                        escrito por {{c.creatorid.username}}
+                </div>
+                <form class="coment">
+                    <label> Comentario </label>
+                    <input class="resume" type="text" [(ngModel)]="description" name="description" required/>
+                    <button ype="submit" name="action" (click)="postComent(description)"> Publicar</button>
+                </form>
             </div>
         </div>
     </div>
 </div>
-

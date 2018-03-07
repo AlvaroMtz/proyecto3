@@ -151,16 +151,10 @@
     font-size: medium !important;
    }
 
-   .comentario{
-     margin-top: 50%;
-
-   }
    .general{
     display: inline-block;
    }
-   .coment{
-    position: fixed;
-   }
+
    .like{
     position: fixed;
    }
@@ -169,5 +163,16 @@
      margin: 2px;
    }
    .general{
-     margin-top: 12%;
+     margin-top: 10%;
    }
+   agm-map {
+    height: 250px;
+    margin-top: 6%;
+  }
+  .map{
+    margin-top: 6%;
+  }
+  .container_map{
+    margin-top: 6%;
+    height: 250px;
+  }

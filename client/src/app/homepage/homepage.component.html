@@ -1,4 +1,4 @@
-<div *ngIf="this.likes.length == 5">
+<div *ngIf="user">
     <nav class="navbar navbar-trans navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -23,7 +23,7 @@
                         <ul class="dropdown-menu">
 
                             <li>
-                                <a [routerLink]="['signup']">
+                                <a [routerLink]="['/signup']">
                                     ¿No estás registrado?
                                 </a>
 
@@ -76,7 +76,7 @@
 <div class="container_left">
     <h2 class="left_title">Historias populares</h2>
     <div *ngFor="let p of publications; let i = index">
-        <div *ngIf="i < 4">
+    
             <div class="col m4">
                 <div class="container">
                     <div class="post-card">
@@ -135,9 +135,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+  
     </div>
 </div>
+
 <div>
 
 </div>
