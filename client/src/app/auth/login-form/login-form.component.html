@@ -4,7 +4,7 @@
     <form class="login-form">
       <input type="text" [(ngModel)]="username" name="username" placeholder="¿Cómo te llamas?"/>
       <input type="password" [(ngModel)]="password" name="password" placeholder="Pasword"/>
-      <a (click)="login()" ype="submit" name="action" >Login</a>
+      <button  (click)="login()" ype="submit" name="action" >Login</button>
       <p class="message">Not registered? <a href="/signup">Go to SignUp</a></p>
     </form>
     <p *ngIf="error" class="error"> {{ error }} </p>

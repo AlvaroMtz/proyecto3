@@ -1,3 +1,6 @@
+body{
+    min-height: 1500px;
+}
 .container1{
     border-top: 1px solid black;
 }
@@ -6,26 +9,37 @@
 }
 .imagen{
     margin: 15px;
-    margin-top: 60px;
+    margin-top: 8%;
+    
+}
+img{
+    display: block;
+    margin: auto;
 }
 
 .name{
-    margin: 15px;
+    display: block;
+    margin-left: 47%;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 .aportaciones{
     margin: 15px;
     border: 1px solid black;
     border-radius: 5px;
+
 }
 .follower{
     margin: 15px;
     border: 1px solid black;
     border-radius: 5px;
+
 }
 .following{
     margin: 15px;
     border: 1px solid black;
     border-radius: 5px;
+
 }
 .profile{
     margin-top: 20px;
@@ -35,6 +49,8 @@
 .header{
     display: block;
     align-content: center;
+    background-image: url("http://fotolector.diariovasco.com/2014/data/media/1/carretera.jpg");
+    height: 350px;
 }
 /* -------------NAVBAR------------ */
 .licat{
@@ -61,3 +77,18 @@
    }
    
    /* ------------- */
+
+   .cardimage{
+       width: 300px
+   }
+
+   .card{
+       display: block;
+       margin: 8%;
+       border: 1px solid gray;
+       border-radius: 5px;
+   }
+
+   .pestañas{
+       margin-left: 40% !important;
+   }

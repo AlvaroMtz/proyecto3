@@ -22,7 +22,7 @@ export class HomepageComponent implements OnInit {
   error:string;
   likeID:Array<any> = [];
   
-  
+
   constructor(
     private router:Router,
     private route: ActivatedRoute,
@@ -30,13 +30,16 @@ export class HomepageComponent implements OnInit {
     public authService: SessionService,
     private likeService: LikeService,
     private followService: FollowService
-  ) { 
-    this.pubService.getList().subscribe(list => {
-      this.publications = list;
-      this.user = this.authService.getUser();
-      console.log(this.user)
-    })
- 
+  ) {   setTimeout(() => {
+    window.location
+  }, 1000);
+      this.pubService.getList().subscribe(list => {
+        this.user = this.authService.getUser();
+        this.publications = list;
+        console.log(this.user)
+      })
+   
+    
   }
   
   
@@ -45,7 +48,6 @@ export class HomepageComponent implements OnInit {
       this.follow = follow;
       this.getLikes(this.publications)
         })
-
   }
 
   getPostLikes(id){
@@ -68,5 +70,6 @@ export class HomepageComponent implements OnInit {
     this.authService.logout()
     .catch(e => this.error = e)
     .subscribe();
+    this.router.navigate(['login']);
   }
 }

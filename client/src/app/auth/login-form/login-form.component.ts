@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../../services/session.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { window } from 'rxjs/operator/window';
 
 @Component({
   selector: 'app-login-form',
@@ -29,7 +30,7 @@ export class LoginFormComponent implements OnInit {
     this.session.login(this.username,this.password)
     .catch(e => this.error = e)
     .subscribe(user => console.log(`Welcome ${user.username}`));
-
+    this.router.navigateByUrl('/')
   }
 
   logout(){
