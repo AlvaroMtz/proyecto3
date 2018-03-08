@@ -29,8 +29,9 @@
   
 }
 .left_title{
-  margin-left: 5%;
+  margin-left: 18%;
   margin-top: 5%;
+  border-bottom: 1px solid black;
 }
 /* ----------- */
   .img{
@@ -70,9 +71,10 @@ body {
 
 .container {
   margin-top: 8%;
+  margin-left: 16%;
   width: 600px;
   height: 200px;
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
 }
@@ -85,7 +87,7 @@ body {
   margin: 10px;
 }
 .container .post-card .post-card__nav {
-  display: flex;
+  display: block;
   border-radius: 0.3rem;
 }
 .container .post-card .post-card__nav ul {
@@ -292,7 +294,7 @@ agm-map {
   height: 500px;
 }
 .map{
-  margin-top: 5%;
+  margin-top: 6%;
 }
 
 .no_register{

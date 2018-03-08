@@ -12,6 +12,21 @@ import { FollowService } from '../../services/follow.service';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
+  //Prueba mapa
+  hiddenmap1 = true;
+  hiddenmap2 = true;
+  hiddenmap3 = true;
+  hiddenmap4 = true
+
+  imagen1 = false;
+  click2H = false;
+  click2T = true;
+
+
+
+
+
+
 
   user;
   lat: number = 40.393955;
@@ -30,13 +45,10 @@ export class HomepageComponent implements OnInit {
     public authService: SessionService,
     private likeService: LikeService,
     private followService: FollowService
-  ) {   setTimeout(() => {
-    window.location
-  }, 1000);
+  ) {   
       this.pubService.getList().subscribe(list => {
         this.user = this.authService.getUser();
         this.publications = list;
-        console.log(this.user)
       })
    
     
@@ -71,5 +83,12 @@ export class HomepageComponent implements OnInit {
     .catch(e => this.error = e)
     .subscribe();
     this.router.navigate(['login']);
+  }
+
+  hiddenMap(){
+    this.hiddenmap1 = true;
+    this.imagen1 = false;
+    this.click2H = true;
+    this.click2T = false;
   }
 }
