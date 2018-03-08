@@ -25,9 +25,11 @@ export class LoginFormComponent implements OnInit {
   }
 
   login(){
+    console.log(this.username, this.password)
     this.session.login(this.username,this.password)
     .catch(e => this.error = e)
-    .subscribe(() => this.router.navigate(['home']));
+    .subscribe(user => console.log(`Welcome ${user.username}`));
+
   }
 
   logout(){

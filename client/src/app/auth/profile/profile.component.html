@@ -1,43 +1,57 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-        aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" [routerLink]="['/home']">STORIES</a>
-    </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <!-- Intentar poneer la imagen de perfil -->
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{this.sessionService.getUser()._id.username}}
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li>
-              <a [routerLink]="['/new']">Nueva historia</a>
-            </li>
-            <li role="separator" class="divider"></li>
-            <li>
-              <a [routerLink]="['/profile', user._id]">Mi perfil</a>
-            </li>
-            <li role="separator" class="divider"></li>
-            <li>
-              <a href="#">¿A quién sigues?</a>
-            </li>
-            <li role="separator" class="divider"></li>
-            <li>
-              <a href="#">LOGOUT</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
+<nav class="navbar navbar-trans navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" [routerLink]="['/home']">STORIES</a>
+
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right rigth">
+                <li class="dropdown">
+                    <!-- Intentar poneer la imagen de perfil -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                           Hi, {{user.username}}
+                            
+                        <img class="smallprofile" src="https://image.freepik.com/iconos-gratis/perfil-macho-sombra-de-usuario_318-40244.jpg" alt="">
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a [routerLink]="['/signup']">
+                                ¿No estás registrado?
+                            </a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+               
+                            <li>
+                                <a [routerLink]="['/new']">Nueva historia</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+
+                            <li>
+                                <a [routerLink]="['/profile', user._id]">Mi perfil</a>
+                            </li>
+
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a href="#">¿A quién sigues?</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <button (click)="logout()"> Logout </button>
+                            </li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        </div>
 </nav>
 
 
@@ -150,11 +164,52 @@
         </ul>
       </div>
       <div class="col-sm-9 publications">
-        <div *ngFor="let p of publication">
-          <P>AQUÍ VA LA IMAGEN DEL ARTÍCULO</P>
-          <h2>{{p.title}}</h2>
-          <p>AQUÍ VA EL RESUMEN</p>
-          <a href="">AQUÍ VA EL LINK AL ARTÍCULO</a>
+
+          <ul class="nav nav-tabs">
+              <li class="active"><a data-toggle="tab" href="#home">Publicaciones</a></li>
+              <li><a data-toggle="tab" href="#menu1">Editar</a></li>
+              <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+            </ul>
+            
+            <div class="tab-content">
+              <div id="home" class="tab-pane fade in active">
+                  <div *ngFor="let p of publication">
+                      <P>AQUÍ VA LA IMAGEN DEL ARTÍCULO</P>
+                      <h2>{{p.title}}</h2>
+                      <p>{{p.resume}}</p>
+                      <a [routerLink]="['/post', p._id]">Leer</a>
+              </div>
+              </div>
+              <div id="menu1" class="tab-pane fade">
+                  <form>
+                      <label> ¿Cómo te llamas? </label>
+                      <input type="text" [(ngModel)]="user.name" name="name" />
+                      <br>
+                      <label> ¿Y tus apellidos? </label>
+                      <input type="text" [(ngModel)]="user.surname" name="surname" />
+                      <br>
+                      <label> ¿Quieres cambiar tu username? </label>
+                      <input type="text" [(ngModel)]="user.username" name="username" />
+                      <br>
+                      <label> Email </label>
+                      <input type="email" [(ngModel)]="user.email" name="email" />
+                      <br>
+                      <label> Pequeña descripción </label>
+                      <input type="text" [(ngModel)]="user.text" name="text" />
+                      <br>
+                      <div>
+                        <button (click)="editUser(user)"> ¡Editar!</button>
+                      </div>
+                      <a [routerLink]="['/home']"> Volver a Home</a>
+                  
+                    </form>
+              </div>
+              <div id="menu2" class="tab-pane fade">
+                <h3>Menu 2</h3>
+                <p>Some content in menu 2.</p>
+              </div>
+            </div>
+        
 
         </div>
       </div>

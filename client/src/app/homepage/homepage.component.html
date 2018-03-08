@@ -1,41 +1,44 @@
 <div *ngIf="user">
-    <nav class="navbar navbar-trans navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-                    aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" [routerLink]="['/home']">STORIES</a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right rigth">
-                    <li class="dropdown">
-                        <!-- Intentar poneer la imagen de perfil -->
+<nav class="navbar navbar-trans navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" [routerLink]="['/home']">STORIES</a>
 
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            <img class="smallprofile" src="https://image.freepik.com/iconos-gratis/perfil-macho-sombra-de-usuario_318-40244.jpg" alt="">
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-
-                            <li>
-                                <a [routerLink]="['/signup']">
-                                    ¿No estás registrado?
-                                </a>
-
-                            </li>
-                            <li role="separator" class="divider"></li>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right rigth">
+                <li class="dropdown">
+                    <!-- Intentar poneer la imagen de perfil -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                           Hi, {{user.username}}
+                            
+                        <img class="smallprofile" src="https://image.freepik.com/iconos-gratis/perfil-macho-sombra-de-usuario_318-40244.jpg" alt="">
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a [routerLink]="['/signup']">
+                                ¿No estás registrado?
+                            </a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+               
                             <li>
                                 <a [routerLink]="['/new']">Nueva historia</a>
                             </li>
                             <li role="separator" class="divider"></li>
+
                             <li>
                                 <a [routerLink]="['/profile', user._id]">Mi perfil</a>
                             </li>
+
                             <li role="separator" class="divider"></li>
                             <li>
                                 <a href="#">¿A quién sigues?</a>
@@ -44,39 +47,40 @@
                             <li>
                                 <button (click)="logout()"> Logout </button>
                             </li>
-                        </ul>
-                    </li>
-                </ul>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        </div>
+</nav>
+</div>
+
+<div *ngIf="publications">
+    <div class="map">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="3">
+            <div *ngFor="let p of publications; let i = index">
+                <agm-marker [latitude]="p.lat" [longitude]="p.lng"></agm-marker>
+            </div>
+        </agm-map>
+    </div>
+
+
+
+    <!-- Muestra los following, utilizar en el perfil para mostrar los followers y following -->
+    <div *ngFor="let f of follow">
+        <div *ngIf="user._id == f.userId">
+            <div *ngFor="let following of f.followingID">
+                <h1>{{following.username}}</h1>
             </div>
         </div>
-    </nav>
-</div>
-
-
-<div class="map">
-    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="3">
-        <div *ngFor="let p of publications; let i = index">
-            <agm-marker [latitude]="p.lat" [longitude]="p.lng"></agm-marker>
-        </div>
-    </agm-map>
-</div>
-
-
-
-<!-- Muestra los following, utilizar en el perfil para mostrar los followers y following -->
-<div *ngFor="let f of follow">
-    <div *ngIf="user._id == f.userId">
-        <div *ngFor="let following of f.followingID">
-            <h1>{{following.username}}</h1>
-        </div>
     </div>
-</div>
 
 
-<div class="container_left">
-    <h2 class="left_title">Historias populares</h2>
-    <div *ngFor="let p of publications; let i = index">
-    
+    <div class="container_left">
+        <h2 class="left_title">Historias populares</h2>
+        <div *ngFor="let p of publications; let i = index">
+
             <div class="col m4">
                 <div class="container">
                     <div class="post-card">
@@ -110,7 +114,7 @@
                                 <p>{{p.resume}}</p>
                                 <a [routerLink]="['/post', p._id]">Read more</a>
                             </div>
-     
+
                         </div>
                         <div class="post-card__img" id="post-card__img">
                             <div class="post-card__social">
@@ -124,8 +128,8 @@
                                     <li>
                                         <a href="#">
                                             <i class="ion ion-heart"></i>
-                                            <span> 
-                                            {{likes[i].length}}
+                                            <span>
+                                                {{likes[i].length}}
                                             </span>
                                         </a>
                                     </li>
@@ -135,10 +139,12 @@
                     </div>
                 </div>
             </div>
-  
+
+        </div>
+    </div>
+    <div>
     </div>
 </div>
-
 <div>
 
 </div>

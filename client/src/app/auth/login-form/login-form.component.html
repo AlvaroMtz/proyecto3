@@ -2,10 +2,11 @@
 <div class="login-page">
   <div class="form">
     <form class="login-form">
-      <input type="text" [(ngModel)]="name" name="name" placeholder="¿Cómo te llamas?"/>
+      <input type="text" [(ngModel)]="username" name="username" placeholder="¿Cómo te llamas?"/>
       <input type="password" [(ngModel)]="password" name="password" placeholder="Pasword"/>
-      <button (click)="login()" ype="submit" name="action" >login</button>
-      <p class="message">Not registered? <a href="/login">Go to SignUp</a></p>
+      <a (click)="login()" ype="submit" name="action" >Login</a>
+      <p class="message">Not registered? <a href="/signup">Go to SignUp</a></p>
     </form>
+    <p *ngIf="error" class="error"> {{ error }} </p>
   </div>
 </div>

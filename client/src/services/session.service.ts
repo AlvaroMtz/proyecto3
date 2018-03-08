@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -26,6 +26,7 @@ export class SessionService {
   getUser(){
     return this.user;
   }
+
   private configureUser(set=false){
     return (user) => {
       if(set){
