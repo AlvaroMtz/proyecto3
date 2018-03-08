@@ -1,3 +1,28 @@
+body{
+  min-height: 1500px;
+}
+.licat{
+  display: inline;
+ }
+ .navbar-brand{
+   color: #333 !important;
+ }
+ .categories{
+   font-size: medium;
+ }
+ .general{
+   margin-left: 7%;
+   margin-right: 7%;
+ }
+ .smallprofile{
+  width: 40px;
+ }  
+ .rigth{
+   margin-right: 1%;
+ }
+ .dropdown-toggle{
+   color: #22313F
+ }
 .licat{
     display: inline;
    }

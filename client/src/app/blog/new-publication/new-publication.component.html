@@ -1,4 +1,6 @@
 <div *ngIf="this.user">
+    <body>
+
     <nav class="navbar navbar-trans navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -16,6 +18,9 @@
                     <li class="dropdown">
                         <!-- Intentar poneer la imagen de perfil -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            
+                                Hi, {{user.username}}
+                            
                             <img class="smallprofile" src="https://image.freepik.com/iconos-gratis/perfil-macho-sombra-de-usuario_318-40244.jpg" alt="">
                             <span class="caret"></span>
                         </a>
@@ -85,5 +90,6 @@
         </div>
     </div>
 
-
+        
+</body>
 </div>

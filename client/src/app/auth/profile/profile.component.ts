@@ -60,6 +60,13 @@ export class ProfileComponent implements OnInit {
     this.followService.postId(userId, currentId)
       .subscribe(()=>{})
   }
+  editUser(user){
+    console.log(user)
+    this.pS.edit(user)
+    .subscribe((user) =>{
+      this.user = user;
+    })
+  }
 
 }
 

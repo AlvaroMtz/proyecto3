@@ -67,12 +67,6 @@
                     <h3>{{likes}} </h3>
                 </div>
             </div>
-            <div class="col-md-2">
-                <!-- <button (click)="deletePublication()">
-                                                Delete
-                                            </button> -->
-
-            </div>
             <div class="col-md-5">
                 <h2> {{publication.title }}</h2>
                 <div class="container_text">
@@ -84,17 +78,47 @@
                 </a>
 
             </div>
-            <div class="container comentario">
-                    <div *ngFor="let c of coments">
-                        <p>{{c.description}}</p>
-                        escrito por {{c.creatorid.username}}
-                </div>
-                <form class="coment">
-                    <label> Comentario </label>
-                    <input class="resume" type="text" [(ngModel)]="description" name="description" required/>
-                    <button ype="submit" name="action" (click)="postComent(description)"> Publicar</button>
-                </form>
+            <div class="col-md-2">
+                <div class="detailBox">
+                        <div class="titleBox">
+                          <label>Comentarios </label>
+                        </div>
+                        <div class="commentBox">
+                            
+                            <p class="taskDescription">Aquí empiezan los comentarios</p>
+                        </div>
+                        <div class="actionBox">
+                            <ul *ngFor="let c of coments" class="commentList">
+                                <li>
+                                    <div class="commenterImage">
+                                      <img src="http://placekitten.com/50/50" />
+                                    </div>
+                                    <div class="commentText">
+                                        <p class="">{{c.description}}</p> <span class="date sub-text">by {{publication.userId.username}} </span>
+                    
+                                    </div>
+                                </li>
+                            </ul>
+                            <form class="form-inline" role="form">
+                                <div class="form-group">
+                                    <input class="form-control" [(ngModel)]="description" type="text" placeholder="Your comments" />
+                                </div>
+                                <div class="form-group">
+                                        <button ype="submit" class="btn btn-default" name="action" (click)="postComent(description)"> Coment</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
             </div>
+
+            <div class="container">
+
+                    </div><!-- /container -->
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - -   -->
+
+
         </div>
     </div>
 </div>

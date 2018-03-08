@@ -1,25 +1,64 @@
 <div *ngIf=this.user>
-  <h1> Hola {{user.username}}, este es tu perfil, ¿lo quieres editar?</h1>
-  <form>
-    <label> ¿Cómo te llamas? </label>
-    <input type="text" [(ngModel)]="user.name" name="name" />
-    <br>
-    <label> ¿Y tus apellidos? </label>
-    <input type="text" [(ngModel)]="user.surname" name="surname" />
-    <br>
-    <label> ¿Quieres cambiar tu username? </label>
-    <input type="text" [(ngModel)]="user.username" name="username" />
-    <br>
-    <label> Email </label>
-    <input type="email" [(ngModel)]="user.email" name="email" />
-    <br>
-    <label> Pequeña descripción </label>
-    <input type="text" [(ngModel)]="user.text" name="text" />
-    <br>
-    <div>
-      <button (click)="editUser(user)"> ¡Editar!</button>
+    <nav class="navbar navbar-trans navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" [routerLink]="['/home']">STORIES</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right rigth">
+                    <li class="dropdown">
+                        <!-- Intentar poneer la imagen de perfil -->
+                       
+                        Hi, {{user.username}}
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <img class="smallprofile" src="https://image.freepik.com/iconos-gratis/perfil-macho-sombra-de-usuario_318-40244.jpg" alt="">
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a [routerLink]="['/signup']">¿No estás registrado?</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a [routerLink]="['/new']">Nueva historia</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a [routerLink]="['/profile', user._id]">Mi perfil</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a href="#">¿A quién sigues?</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a href="#">LOGOUT</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  <div class="login-page">
+      <h1> Hola {{user.username}}, este es tu perfil, ¿lo quieres editar?</h1>
+      <div class="form">
+        <form class="login-form">
+          <input type="text" [(ngModel)]="user.name" name="name" placeholder="¿Cómo te llamas?"/>
+          <input type="text" [(ngModel)]="user.surname" name="surname" placeholder="¿Y tus apellidos?"/>
+          <input type="text" [(ngModel)]="user.email" name="email" placeholder="Email"/>
+          <input type="text" [(ngModel)]="user.text" name="text" placeholder="Pequeña descripción"/>
+          <button  (click)="editUser(user)" ype="submit" name="action" >¡Editar!</button>
+        </form>
+        <p *ngIf="error" class="error"> {{ error }} </p>
+      </div>
     </div>
-    <a [routerLink]="['/home']"> Volver a Home</a>
-
-  </form>
 </div>
+

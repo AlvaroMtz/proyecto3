@@ -66,6 +66,11 @@
   <div class="name">
     {{user.username}}
   </div>
+  <div *ngIf="user._id === currentUser._id">
+      <button [routerLink]="['/edit', user._id]">
+        Editar
+      </button>
+    </div>
   <div class="container container1">
     <div class="row">
       <div class="col-md-4 ">
@@ -217,11 +222,6 @@
                   </li>
                   <input type="hidden" id="userId" [(ngModel)]="user._id" name="userId">
                   <input type="hidden" id="currentId" [(ngModel)]="this.sessionService.getUser()._id" name="this.pS.getUser()._id">
-                  <div *ngIf="this.user._id == this.sessionService.getUser()._id">
-                    <button>
-                      Editar
-                    </button>
-                  </div>
                   <div *ngIf="this.user._id != this.sessionService.getUser()._id">
                     <button (click)="followUser(user._id, this.sessionService.getUser()._id )">
                       <i class="ion-person-add"></i>
