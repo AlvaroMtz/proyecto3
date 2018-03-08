@@ -301,3 +301,42 @@ agm-map {
   align-content: center;
   margin-top: 35%;
 }
+.img-src {
+  position: fixed;
+  background-position: center;
+  -webkit-background-size: cover;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.blurred-img { opacity: 0; }
+
+.article {
+width:500px;
+height: 2000px;
+}
+
+.center {
+font-family: "jaf-bernino-sans","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+color: #fff;
+position: fixed;
+z-index: 9999;
+font-size: 50px;
+top: 50%;
+margin-top: -25px;
+left: 47%;
+margin-left: -103px;
+}
+.center2{
+font-family: "jaf-bernino-sans","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+position: fixed;
+z-index: 9999;
+font-size: 20px;
+top: 60%;
+margin-top: -25px;
+left: 53%;
+margin-left: -103px;
+}

@@ -3,14 +3,20 @@ body{
 }
 .container1{
     border-top: 1px solid black;
+    margin-top: 60px !important;
 }
 .img-rounded{
     width: 100px;
 }
 .imagen{
     margin: 15px;
-    margin-top: 8%;
-    
+    margin-top: 7%;
+    width: 150px;
+    margin-left: 40%
+}
+.img-circle{
+    padding-top: 40%;
+
 }
 img{
     display: block;
@@ -23,22 +29,28 @@ img{
     margin-top: 2%;
     margin-bottom: 2%;
 }
+.editar{
+    margin-left:2% !important;
+}
 .aportaciones{
+    text-align: center;
     margin: 15px;
-    border: 1px solid black;
     border-radius: 5px;
+    font-size: 25px !important;
 
 }
 .follower{
+    text-align: center;
     margin: 15px;
-    border: 1px solid black;
     border-radius: 5px;
+    font-size: 25px !important;
 
 }
 .following{
+    text-align: center;
     margin: 15px;
-    border: 1px solid black;
     border-radius: 5px;
+    font-size: 25px !important;
 
 }
 .profile{
@@ -79,7 +91,7 @@ img{
    /* ------------- */
 
    .cardimage{
-       width: 300px
+       width: 100%;
    }
 
    .card{
@@ -91,4 +103,49 @@ img{
 
    .pestañas{
        margin-left: 40% !important;
+   }
+
+   .container1{
+       margin-top: 5px;
+       margin-bottom: 5px;
+   }
+   .pestañas{
+    margin-top: 10px;
+   }
+   .tab-content{
+    display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+   }
+   .card{
+    display: inline-block;
+    text-align: left;
+   }
+   .col-sm-9 publications{
+       margin-top: 10%;
+   }
+
+   .info{
+    margin-top: 75px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    padding: 30px;
+    background-color: #c2ead2;
+   }
+   .divider{
+       border-bottom: 1px solid gray;
+       margin: 30px;
+   }
+   .btn-primary{
+       background-color: #BF7676 !important;
+       border: 1px solid #BF7676 !important;
+       border-radius: 10px;
+   }
+   .text_container1{
+       color: #BF7676
+   }
+
+   .imagenes{
+       width: 100% !important;
    }

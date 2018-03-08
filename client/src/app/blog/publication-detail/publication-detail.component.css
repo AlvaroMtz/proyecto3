@@ -148,7 +148,9 @@
    }
 
    .center{
+     width: 500px;
     font-size: medium !important;
+    margin-top: 5%;
    }
 
    .general{
@@ -167,6 +169,7 @@
    }
    agm-map {
     height: 250px;
+    width: 100%;
     margin-top: 6%;
   }
   .map{
@@ -241,4 +244,8 @@
 .actionBox {
     border-top:1px dotted #bbb;
     padding:10px;
+}
+.writtenby{
+  font-size:20px;
+  border-bottom: 1px solid black;
 }

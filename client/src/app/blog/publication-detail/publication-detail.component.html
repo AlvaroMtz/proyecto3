@@ -68,16 +68,18 @@
                 </div>
             </div>
             <div class="col-md-5">
-                <h2> {{publication.title }}</h2>
+                <h2> {{publication.title }}</h2> 
+                <br>
+                <br>              
+            <p class="writtenby">Escrito por</p> <h2><a [routerLink]="['/profile', publication.userId._id]">{{publication.userId.username}}</a></h2>
                 <div class="container_text">
                     <div class="center" [froalaView]="publication.text"></div>
                 </div>
-                <!-- SOLO EL CREADOR!!!! -->
-                <a [routerLink]="['/profile', publication.userId._id]">
-                    <p>{{publication.userId.username}}</p>
-                </a>
-
             </div>
+            <br>
+            <br>
+            <br>
+            <br>
             <div class="col-md-2">
                 <div class="detailBox">
                         <div class="titleBox">
@@ -101,7 +103,7 @@
                             </ul>
                             <form class="form-inline" role="form">
                                 <div class="form-group">
-                                    <input class="form-control" [(ngModel)]="description" type="text" placeholder="Your comments" />
+                                    <input class="form-control" name="description" [(ngModel)]="description" type="text" placeholder="Your comments" />
                                 </div>
                                 <div class="form-group">
                                         <button ype="submit" class="btn btn-default" name="action" (click)="postComent(description)"> Coment</button>
@@ -111,13 +113,8 @@
                     </div>
 
             </div>
-
-            <div class="container">
-
-                    </div><!-- /container -->
-
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - -   -->
-
+            
 
         </div>
     </div>

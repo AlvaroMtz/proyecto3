@@ -1,240 +1,209 @@
 <body>
   <div *ngIf=currentUser>
-  <nav class="navbar navbar-trans navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-          aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
+    <nav class="navbar navbar-trans navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+            aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" [routerLink]="['/home']">STORIES</a>
+
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right rigth">
+            <li class="dropdown">
+              <!-- Intentar poneer la imagen de perfil -->
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Hi, {{currentUser.username}}
+
+                <img class="smallprofile" src="https://image.freepik.com/iconos-gratis/perfil-macho-sombra-de-usuario_318-40244.jpg" alt="">
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a [routerLink]="['/signup']">
+                    ¿No estás registrado?
+                  </a>
+                </li>
+                <li role="separator" class="divider"></li>
+
+                <li>
+                  <a [routerLink]="['/new']">Nueva historia</a>
+                </li>
+                <li role="separator" class="divider"></li>
+
+                <li>
+                  <a [routerLink]="['/profile', currentUser._id]">Mi perfil</a>
+                </li>
+
+                <li role="separator" class="divider"></li>
+                <li>
+                  <a href="#">¿A quién sigues?</a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                  <button (click)="logout()"> Logout </button>
+                </li>
+
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+
+    <div class="header">
+      <div class="imagen">
+        <img class="img-circle imagen" src="https://image.freepik.com/iconos-gratis/perfil-macho-sombra-de-usuario_318-40244.jpg">
+      </div>
+    </div>
+    <div class="name">
+      <h1>{{user.username}}</h1>
+      <div *ngIf="user._id === currentUser._id">
+        <button class="btn editar btn-info" [routerLink]="['/edit', user._id]">
+          Editar
         </button>
-        <a class="navbar-brand" [routerLink]="['/home']">STORIES</a>
-
-      </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right rigth">
-          <li class="dropdown">
-            <!-- Intentar poneer la imagen de perfil -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              Hi, {{currentUser.username}}
-
-              <img class="smallprofile" src="https://image.freepik.com/iconos-gratis/perfil-macho-sombra-de-usuario_318-40244.jpg" alt="">
-              <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a [routerLink]="['/signup']">
-                  ¿No estás registrado?
-                </a>
-              </li>
-              <li role="separator" class="divider"></li>
-
-              <li>
-                <a [routerLink]="['/new']">Nueva historia</a>
-              </li>
-              <li role="separator" class="divider"></li>
-
-              <li>
-                <a [routerLink]="['/profile', currentUser._id]">Mi perfil</a>
-              </li>
-
-              <li role="separator" class="divider"></li>
-              <li>
-                <a href="#">¿A quién sigues?</a>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li>
-                <button (click)="logout()"> Logout </button>
-              </li>
-
-            </ul>
-          </li>
-        </ul>
       </div>
     </div>
-  </nav>
-
-
-
-  <div class="header">
-    <div class="imagen">
-      <img src="https://image.freepik.com/iconos-gratis/perfil-macho-sombra-de-usuario_318-40244.jpg" class="img-rounded" alt="">
-    </div>
-  </div>
-  <div class="name">
-    {{user.username}}
-  </div>
-  <div *ngIf="user._id === currentUser._id">
-      <button [routerLink]="['/edit', user._id]">
-        Editar
-      </button>
-    </div>
-  <div class="container container1">
-    <div class="row">
-      <div class="col-md-4 ">
-        <div class="aportaciones">
-        <h5>
-          <i class="ion-ios-chatboxes"></i> Aportaciones {{publication.length}}</h5>
-        </div>
-      </div>
-      <div class="col-md-4 ">
-        <div class="follower">
-          <div *ngFor="let f of follow">
-            <div *ngIf="user._id == f.userId">
-              <h5>
-                <i class="ion-person-stalker"></i>{{f.followerID.length}} Seguidores</h5>
-            </div>
+    <div class="container container1">
+      <div class="row">
+        <div class="col-md-4 ">
+          <div class="aportaciones">
+            <h5 class="aportaciones">
+              Post
+              <p class="text_container1">
+                {{publication.length}}</p>
+               </h5>
           </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="following">
-          <div *ngFor="let f of follow">
-            <div *ngIf="user._id == f.userId">
-              <h5>
-                <i class="ion-ios-people-outline"></i>Sigue a {{f.followingID.length}} </h5>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div *ngIf="this.user">
-
-    <div class="col-sm-9 publications">
-      <div class="pestañas">
-        <ul class="nav nav-tabs">
-          <li class="active">
-            <a data-toggle="tab" href="#home">Publicaciones</a>
-          </li>
-          <div *ngIf="userId == user._id">
-          <li>
-            <a data-toggle="tab" href="#menu1">Editar</a>
-          </li>
-        </div>
-          <li>
-            <a data-toggle="tab" href="#menu2">Información</a>
-          </li>
-        </ul>
-      </div>
-      <div class="tab-content">
-        <div id="home" class="tab-pane fade in active">
-          <div *ngFor="let p of publication">
-            <div class="d-flex flex-row">
-              <div class="p-2">
-                <div class="card">
-                  <img class="card-img-top cardimage" src="https://www.renfe-sncf.com/es-es/blog/PublishingImages/paris-noche-museos/paris_noche_museos_01.jpg"
-                    alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">{{p.title}}</h5>
-                    <p class="card-text">{{p.resume}}</p>
-                    <a [routerLink]="['/post', p._id]" class="btn btn-primary">Leer</a>
-                  </div>
-                </div>
+        <div class="col-md-4 ">
+          <div class="follower">
+            <div *ngFor="let f of follow">
+              <div *ngIf="user._id == f.userId">
+                <h5 class="follower">
+                    Follower
+                  <p class="text_container1"> {{f.followerID.length}} </p>
+                  </h5> 
               </div>
             </div>
           </div>
         </div>
-
-
-        <div id="menu1" class="tab-pane fade">
-          <form>
-            <label> ¿Cómo te llamas? </label>
-            <input type="text" [(ngModel)]="user.name" name="name" />
-            <br>
-            <label> ¿Y tus apellidos? </label>
-            <input type="text" [(ngModel)]="user.surname" name="surname" />
-            <br>
-            <label> ¿Quieres cambiar tu username? </label>
-            <input type="text" [(ngModel)]="user.username" name="username" />
-            <br>
-            <label> Email </label>
-            <input type="email" [(ngModel)]="user.email" name="email" />
-            <br>
-            <label> Pequeña descripción </label>
-            <input type="text" [(ngModel)]="user.text" name="text" />
-            <br>
-            <div>
-              <button (click)="editUser(user)"> ¡Editar!</button>
-            </div>
-            <a [routerLink]="['/home']"> Volver a Home</a>
-
-          </form>
-        </div>
-        <div id="menu2" class="tab-pane fade">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-3  profile">
-                <p>Nombre: {{user.name}}</p>
-                <p>Apellidos: {{user.surname}}</p>
-                <p>Nick: {{user.username}}</p>
-                <p>Email: {{user.email}}</p>
-
-
-                <!-- Seguidores!!!!! -->
-                <p>
-                  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
-                    Seguidores
-                  </button>
-                </p>
-                <div class="collapse" id="collapse1">
-                  <div class="card card-body">
-                    <div *ngFor="let f of follow">
-                      <div *ngIf="user._id == f.userId">
-                        <ul *ngFor="let follower of f.followerID">
-                          <li>
-                            <a [routerLink]="['/profile', follower._id]">{{follower.username}}</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <p>
-                  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                    Seguidos
-                  </button>
-                </p>
-                <div class="collapse" id="collapse2">
-                  <div class="card card-body">
-                    <div *ngFor="let f of follow">
-                      <div *ngIf="user._id == f.userId">
-                        <ul *ngFor="let follower of f.followingID">
-                          <li>
-                            <a [routerLink]="['/profile', follower._id]">{{follower.username}}</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <ul>
-                  <li>
-                    REDES SOCIALES
-                  </li>
-                  <li>
-                    REDES SOCIALES
-                  </li>
-                  <li>
-                    REDES SOCIALES
-                  </li>
-                  <input type="hidden" id="userId" [(ngModel)]="user._id" name="userId">
-                  <input type="hidden" id="currentId" [(ngModel)]="this.sessionService.getUser()._id" name="this.pS.getUser()._id">
-                  <div *ngIf="this.user._id != this.sessionService.getUser()._id">
-                    <button (click)="followUser(user._id, this.sessionService.getUser()._id )">
-                      <i class="ion-person-add"></i>
-                      Follow
-                    </button>
-                  </div>
-                </ul>
+        <div class="col-md-4">
+          <div class="following">
+            <div *ngFor="let f of follow">
+              <div *ngIf="user._id == f.userId">
+                <h5 class="following">
+                  Following 
+                  <p class="text_container1">
+                    {{f.followingID.length}}</p>
+                   </h5>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+    <div *ngIf="this.user">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+            <div *ngFor="let p of publication">
+
+              <!--Card-->
+<div class="card card-cascade wider reverse my-4">
+
+    <!--Card image-->
+    <div class="view overlay">
+        <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg" class="imagenes img-fluid">
+        <a href="#!">
+            <div class="mask rgba-white-slight"></div>
+        </a>
+    </div>
+    <!--/Card image-->
+
+    <!--Card content-->
+    <div class="card-body text-center">
+        <!--Title-->
+        <h4 class="card-title"><strong>{{p.title}}</strong></h4>
+        <h5 class="indigo-text"><strong><a [routerLink]="['/profile', p.userId._id]">{{p.userId.username}}</a></strong></h5>
+
+        <p class="card-text">{{p.resume}}
+        </p>
+
+    </div>
+    <!--/.Card content-->
+
 </div>
+<!--/.Card-->
+
+            </div>
+          </div>
+          <div class="col-md-3 info">
+
+            <h5>{{user.surname}}</h5>
+            <div class="divider"></div>
+            <h5>{{user.email}}</h5>
+            <div class="divider"></div>
+            <h5>{{user.username}}</h5>
+            <div class="divider"></div>
+            <h5>{{user.name}}</h5>
+            <div class="divider"></div>
+            <p>
+              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                Seguidores
+              </button>
+            </p>
+            <div class="collapse" id="collapse1">
+              <div class="card card-body">
+                <div *ngFor="let f of follow">
+                  <div *ngIf="user._id == f.userId">
+                    <ul *ngFor="let follower of f.followerID">
+                      <li>
+                        <a [routerLink]="['/profile', follower._id]">{{follower.username}}</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p>
+              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                Seguidos
+              </button>
+            </p>
+            <div class="collapse" id="collapse2">
+              <div class="card card-body">
+                <div *ngFor="let f of follow">
+                  <div *ngIf="user._id == f.userId">
+                    <ul *ngFor="let follower of f.followingID">
+                      <li>
+                        <a [routerLink]="['/profile', follower._id]">{{follower.username}}</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input type="hidden" id="userId" [(ngModel)]="user._id" name="userId">
+            <input type="hidden" id="currentId" [(ngModel)]="this.sessionService.getUser()._id" name="this.pS.getUser()._id">
+            <div *ngIf="this.user._id != this.sessionService.getUser()._id">
+              <button (click)="followUser(user._id, this.sessionService.getUser()._id )">
+                <i class="ion-person-add"></i>
+                Follow
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>

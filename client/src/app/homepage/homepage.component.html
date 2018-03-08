@@ -81,7 +81,7 @@
     <div class="container_left">
         <h2 class="left_title">Historias populares</h2>
         <div *ngFor="let p of publications; let i = index">
-            <div *ngIf=" i < 4">
+            <div >
             <div class="col m4">
                 <div class="container">
                     <div class="post-card">
@@ -109,7 +109,7 @@
                                 <h1>{{p.title}} written by&nbsp;
                                     <a [routerLink]="['/profile', p.userId._id]">{{p.userId.username}}</a>
                                 </h1>
-                                <h5>184 COMENTARIOS&nbsp;
+                                <h5>184 &nbsp;
                                     <span>Reviews</span>
                                 </h5>
                                 <p>{{p.resume}}</p>
@@ -153,55 +153,16 @@
    https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_1280.jpg
  -->
 <div *ngIf="user === undefined">
-        <nav class="navbar navbar-trans navbar-fixed-top">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-                            aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" [routerLink]="['/home']">STORIES</a>
-        
-                    </div>
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right rigth">
-                            <li class="dropdown">
-                                <!-- Intentar poneer la imagen de perfil -->
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-        
-                                    ¿Y si te registras?
-        
-                                    <img class="smallprofile" src="https://image.freepik.com/iconos-gratis/perfil-macho-sombra-de-usuario_318-40244.jpg" alt="">
-                                    <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a [routerLink]="['/signup']">
-                                            ¿No estás registrado?
-                                        </a>
-                                    </li>
-                                    <li role="separator" class="divider"></li>
-                                    <li>
-                                            <a [routerLink]="['/login']">
-                                                Ya estoy registrado
-                                            </a>
-                                        </li>
-                                        <li role="separator" class="divider"></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
+        <div id="blurred-image-container">
+                <div class="img-src" style="background-image:url('https://d262ilb51hltx0.cloudfront.net/fit/c/1600/1280/gradv/29/81/60/darken/25/0*I7mXgSon9oco-rim.jpeg')"></div>
+                <div class="img-src blurred-img" style="background-image:url('https://d262ilb51hltx0.cloudfront.net/fit/c/1600/1280/gradv/29/81/40/darken/50/blur/50/0*I7mXgSon9oco-rim.jpeg')"></div>
+            </div>
             
-            <div class="no_register"><h2>Para disfritar del contenido tienes que estar registrado</h2></div>
-            
-        </div>
-    </div>
+            <div class="article">
+              <h1 class="center">TripStories</h1>
+              <button class="center2" [routerLink]="['/signup']" >SignUp</button>
+            </div>
+</div>
 
 <!--Footer-->
 <footer class="page-footer font-small indigo pt-0">
