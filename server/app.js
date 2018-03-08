@@ -1,3 +1,4 @@
+require('dotenv').load();
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -41,7 +42,6 @@ var corsOptions = {
   credentials: true
 };
 app.use(cors(corsOptions));
-
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

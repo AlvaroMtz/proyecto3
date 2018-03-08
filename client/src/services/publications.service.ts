@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
+import { environment }  from '../environments/environment';
+
 interface Publication {
   title: string,
   text: string,
@@ -19,7 +21,8 @@ interface Coment {
 
 @Injectable()
 export class PublicationsService {
-  BASE_URL: string = 'http://localhost:3000';
+  BASE_URL:string= environment.BASE_URL;
+  // BASE_URL: string = 'http://localhost:3000';
   constructor(private http: Http) { }
   private publication: Publication;
   getList() {

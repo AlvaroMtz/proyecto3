@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { environment }  from '../environments/environment';
 
 interface Follow {
   userId:string,
@@ -9,7 +10,8 @@ interface Follow {
 
 @Injectable()
 export class FollowService {
-  BASE_URL: string = 'http://localhost:3000';
+    BASE_URL:string= environment.BASE_URL;
+  // BASE_URL: string = 'http://localhost:3000';
   constructor(private http: Http) {}
 
   getFollow(){
